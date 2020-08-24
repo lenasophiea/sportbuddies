@@ -10,10 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_144025) do
+ActiveRecord::Schema.define(version: 2020_08_24_153042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "buddy_requests", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.bigint "sport_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sport_id"], name: "index_buddy_requests_on_sport_id"
+    t.index ["user_id"], name: "index_buddy_requests_on_user_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "buddy_request_id", null: false
+    t.bigint "sender_id", null: false
+    t.bigint "receiver_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["buddy_request_id"], name: "index_conversations_on_buddy_request_id"
+    t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
+    t.index ["sender_id"], name: "index_conversations_on_sender_id"
+  end
+
+  create_table "favorite_sports", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "sport_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sport_id"], name: "index_favorite_sports_on_sport_id"
+    t.index ["user_id"], name: "index_favorite_sports_on_user_id"
+  end
+
+  create_table "sports", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +62,19 @@ ActiveRecord::Schema.define(version: 2020_08_24_144025) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.text "description"
+    t.integer "age"
+    t.string "gender"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "buddy_requests", "sports"
+  add_foreign_key "buddy_requests", "users"
+  add_foreign_key "conversations", "buddy_requests"
+  add_foreign_key "conversations", "users", column: "receiver_id"
+  add_foreign_key "conversations", "users", column: "sender_id"
+  add_foreign_key "favorite_sports", "sports"
+  add_foreign_key "favorite_sports", "users"
 end
