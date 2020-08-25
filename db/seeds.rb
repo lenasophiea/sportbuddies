@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
  require 'faker'
 
+
+
  puts "Creating users"
   names = %w[amelie lena mohit]
   names.each do |name|
