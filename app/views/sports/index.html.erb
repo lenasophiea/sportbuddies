@@ -6,3 +6,21 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
     <div class="button-banner"><a class="btn btn-warning" href="#btn">Find buddy</a></div>
   </div>
 </div>
+
+<div id ="btn" class="container-map">
+  <div class="cards ">
+      <% @sports.each do |sport| %>
+
+    <div class="card">
+
+      <div class="card-body">
+       <div class="d-flex justify-content-between align-items-center"> <h2><%= sport.name %> </h2>
+       </div>
+        <p class="card-text"><%= sport.description%></p>
+        <%= link_to "view details", sport_path(sport), class: "btn btn-link" %>
+      </div>
+    </div>
+
+      <% end %>
+  </div>
+</div>

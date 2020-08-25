@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     resources :sports, only: [:index,:show] do
       resources :buddy_requests, only: [:new, :create] do
       end
-    end
+  end
 end
