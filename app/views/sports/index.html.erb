@@ -3,6 +3,30 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
   <div class="container">
     <h1>Welcome to Sports Buddy</h1>
     <p>Discover activities and connect with people from your city</p>
-    <div class="button-banner"><a class="btn btn-warning" href="#btn">Find buddy</a></div>
+
+    <div class="container">
+      <div class="d-flex justify-content-center p-5>
+        <div class="row form-inline text-secondary" id="sports_filter">
+          <%= form_tag sports_path, method: :get do %>
+            <%= text_field_tag :query_sport,
+              params[:query_sport],
+              placeholder: "Chose a sport"
+            %>
+            <%= text_field_tag :query_address,
+              params[:query_address],
+              placeholder: "Chose a location"
+            %>
+            <%= submit_tag "Find an activity", class: "btn btn-warning" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+
+    <div>
+      <% @sports.each do |sport| %>
+        <%= sport.name %>
+      <% end %>
+    </div>
