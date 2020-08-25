@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Request a buddy for <%= @sport.name %> </h1>
+  <h2>For when are you looking for buddy? Choose date & time for your buddy request</h2>
+    <div class="d-flex">
+      <%= simple_form_for([ @sport, @buddy_request ]) do |f| %>
+      <div class="row form-inline text-secondary">
+        <%= f.input :start_time, as: :date, html5: true %>
+
+        <%= f.input :end_time, as: :date, html5: true %>
+
+        <%= f.submit class: "btn btn-primary text-white" %>
+      <% end %>
+      </div>
+    </div>
+</div>
