@@ -9,7 +9,12 @@
 
 
 
- puts "Creating users"
+puts "Deleting exhisting users and sports"
+User.destroy_all
+Sport.destroy_all
+
+puts "Creating users"
+
   names = %w[amelie lena mohit]
   names.each do |name|
     name = User.new(
