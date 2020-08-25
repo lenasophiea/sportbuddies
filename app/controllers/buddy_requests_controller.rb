@@ -1,16 +1,15 @@
 class BuddyRequestsController < ApplicationController
-  def new
-    @sport = Sport.find(params[:sport_id])
-    @buddy_request = BuddyRequest.new
-    # @sports = Sports.all
-    authorize @buddy_request
-  end
 
   def create
     @sport = Sport.find(params[:sport_id])
     @buddy_request = BuddyRequest.new
     @buddy_request.user = current_user
     @buddy_request.sport = @sport
+    if @buddy_request.save
+      redirect_to buddy_request_path(@buddy_request)
+    else
+      render 'sports/show'
+    end
   end
 
   private
