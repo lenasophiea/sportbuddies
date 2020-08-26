@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   end
 
   resources :buddy_requests, only: :show
-  resources :profiles, only: :show
+    resources :profiles, only: :show do
+  end
 end

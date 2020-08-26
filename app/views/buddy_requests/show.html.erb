@@ -8,7 +8,7 @@
        <h2><%= buddy.name %></h2>
         <p><%= buddy.description %></p>
         <p> <%= buddy.age %></p>
-        <%= link_to "view details", profile_path, class: "btn btn-link" %>
+        <%= link_to "view details", profile_path(buddy), class: "btn btn-link" %>
           </div>
    </div>
    <% end %>
