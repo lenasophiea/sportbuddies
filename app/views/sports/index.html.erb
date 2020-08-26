@@ -25,11 +25,11 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
 </div>
 
 
-    <div>
-      <% @sports.each do |sport| %>
-        <%= sport.name %>
-      <% end %>
-    </div>
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
 
 <div id ="btn" class="container-map">
