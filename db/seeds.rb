@@ -11,10 +11,11 @@ require "open-uri"
 puts "Deleting exhisting users and sports"
 User.destroy_all
 Sport.destroy_all
+BuddyRequest.destroy_all
 
 puts "Creating users"
 
-  names = %w[amelie lena mohit]
+  names = %w[amelie lena mohit marcel jana]
   names.each do |name|
     name = User.new(
       email: "#{name}@lewagon.com",
@@ -65,7 +66,15 @@ puts "Creating sports"
 end
 puts "#{Sport.count} sports created"
 
-
+puts "creating buddy_requests"
+  3.times do
+  buddy_request = BuddyRequest.new(
+  sport: Sport.last,
+  user: User.all.sample,
+  date: Date.new(2020,9,1)
+  )
+  buddy_request.save!
+  end
 
 
 

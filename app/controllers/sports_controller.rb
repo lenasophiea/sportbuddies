@@ -33,3 +33,4 @@ class SportsController < ApplicationController
   end
 
 end
+end

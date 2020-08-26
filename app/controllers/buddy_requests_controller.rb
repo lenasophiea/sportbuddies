@@ -2,9 +2,10 @@ class BuddyRequestsController < ApplicationController
 
   def create
     @sport = Sport.find(params[:sport_id])
-    @buddy_request = BuddyRequest.new
-    @buddy_request.user = current_user
+    @buddy_request = BuddyRequest.new(buddy_request_params)
     @buddy_request.sport = @sport
+    @buddy_request.user = current_user
+
     if @buddy_request.save
       redirect_to buddy_request_path(@buddy_request)
       authorize @buddy_request
@@ -14,8 +15,13 @@ class BuddyRequestsController < ApplicationController
   end
 
   def show
-   authorize BuddyRequest.new
-   end
+    @buddy_request = BuddyRequest.find(params[:id])
+    authorize @buddy_request
+    @users = User.joins(:buddy_requests)
+                 .where(buddy_requests: { sport: @buddy_request.sport, date: @buddy_request.date })
+                 .where.not(id: current_user.id)
+                 .distinct
+end
 
   private
 
