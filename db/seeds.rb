@@ -5,9 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
- require 'faker'
- require 'uri'
 
+require 'faker'
+require 'uri'
+require "open-uri"
 
 
 puts "Deleting exhisting users and sports"
@@ -57,12 +58,14 @@ puts "Creating sports"
 ]
 
 6.times do |i|
+  file = URI.open('https://europa.eu/youth/sites/default/files/article/55343908%20-%20%C2%A9%20shutterstock.com%20-%20YanLev_4.jpg')
   sport = Sport.new(
     name: Faker::Team.sport,
     description: "Super sport to have fun!",
-    address: addresses[i],
+    address: addresses[i]
   )
   sport.save!
+  sport.photo.attach(io: file, filename: "sport.jpg", content_type: 'image/jpg')
 end
 puts "#{Sport.count} sports created"
 
