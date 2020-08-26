@@ -10,7 +10,7 @@ class SportsController < ApplicationController
       @sports = Sport.all
     end
 
-    @sports_geo = Flat.geocoded # returns flats with coordinates
+    @sports_geo = Sport.geocoded # returns flats with coordinates
 
     @markers = @sports_geo.map do |sport|
       {
@@ -25,4 +25,5 @@ class SportsController < ApplicationController
     authorize @sport
     # @sports = Sports.all
   end
+end
 end
