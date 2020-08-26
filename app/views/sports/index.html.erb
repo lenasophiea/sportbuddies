@@ -27,12 +27,13 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
       <% @sports.each do |sport| %>
 
     <div class="card">
-
+      <%= cl_image_tag sport.photo.key, class: "card-img-top"%>
       <div class="card-body">
        <div class="d-flex justify-content-between align-items-center"> <h2><%= sport.name %> </h2>
        </div>
         <p class="card-text"><%= sport.description%></p>
         <%= link_to "view details", sport_path(sport), class: "btn btn-link" %>
+
       </div>
     </div>
 
