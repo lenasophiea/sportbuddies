@@ -2,6 +2,9 @@ class SportsController < ApplicationController
 
   def index
     @sports = policy_scope(Sport)
+
+    @sports_selection = Sport.pluck(:name).sort
+
     if params[:query_sport].present?
       @sports = Sport.search_by_sport_filter(params[:query_sport])
     elsif params[:query_address].present?
@@ -26,5 +29,7 @@ class SportsController < ApplicationController
     @buddy_request = BuddyRequest.new
     authorize @sport
     # @sports = Sports.all
+    end
   end
+
 end

@@ -24,13 +24,16 @@ require("channels")
 
 // External imports
 import "bootstrap";
-
+import { autocompleteSearch } from '../components/autocomplete';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../packs/init_mapbox';
 
 
 document.addEventListener('turbolinks:load', () => {
+  autocompleteSearch();
+  // Call your functions here, e.g:
+  // initSelect2();
   setTimeout(() => {
   initMapbox();
   },200)
