@@ -1,0 +1,20 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  flex-grow: 1;
+}
+
+.card-body {
+  display: flex;
+   flex-direction: column;
+  p {
+    flex-grow: 1;
+  }
+}
+  .btn-warning {
+    align-self: center;
+    width: fit-content;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
