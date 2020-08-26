@@ -29,7 +29,6 @@ class SportsController < ApplicationController
     @buddy_request = BuddyRequest.new
     authorize @sport
     # @sports = Sports.all
-    end
   end
 
 end
