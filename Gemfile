@@ -65,3 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'faker'
 gem 'pundit'
+gem 'pg_search', '~> 2.3.0'
+gem "algoliasearch-rails"
+gem 'simple_form'
+gem 'geocoder'
