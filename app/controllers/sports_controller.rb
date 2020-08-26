@@ -13,18 +13,21 @@ class SportsController < ApplicationController
       @sports = Sport.all
     end
 
-    #@sports_geo = Sport.geocoded # returns flats with coordinates
+    @sports_geo = Sport.geocoded # returns flats with coordinates
 
-    #@markers = @sports_geo.map do |sport|
-      #{
-        #lat: sport.latitude,
-        #lng: sport.longitude
-      #}
-  #end
+    @markers = @sports_geo.map do |sport|
+      {
+        lat: sport.latitude,
+        lng: sport.longitude,
+        infoWindow: render_to_string(partial: "shared/info_window", locals: { sport: sport })
+      }
+    end
+  end
 
   def show
     @sport = Sport.find(params[:id])
     @buddy_request = BuddyRequest.new
+    authorize @sport
     # @sports = Sports.all
     end
   end
