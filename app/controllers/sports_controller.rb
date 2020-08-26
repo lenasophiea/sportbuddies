@@ -2,6 +2,9 @@ class SportsController < ApplicationController
 
   def index
     @sports = policy_scope(Sport)
+
+    @sports_selection = Sport.pluck(:name).sort
+
     if params[:query_sport].present?
       @sports = Sport.search_by_sport_filter(params[:query_sport])
     elsif params[:query_address].present?
@@ -10,18 +13,20 @@ class SportsController < ApplicationController
       @sports = Sport.all
     end
 
-    @sports_geo = Flat.geocoded # returns flats with coordinates
+    #@sports_geo = Sport.geocoded # returns flats with coordinates
 
-    @markers = @sports_geo.map do |sport|
-      {
-        lat: sport.latitude,
-        lng: sport.longitude
-      }
-  end
+    #@markers = @sports_geo.map do |sport|
+      #{
+        #lat: sport.latitude,
+        #lng: sport.longitude
+      #}
+  #end
 
   def show
     @sport = Sport.find(params[:id])
     @buddy_request = BuddyRequest.new
     # @sports = Sports.all
+    end
   end
+
 end
