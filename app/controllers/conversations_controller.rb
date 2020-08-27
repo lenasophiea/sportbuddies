@@ -15,7 +15,9 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.find(params[:id])
+    @message = Message.new
     authorize @conversation
+    # @messages = Message.find()
   end
 
 end
