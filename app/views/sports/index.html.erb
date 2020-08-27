@@ -2,7 +2,7 @@
 style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= image_path "banner.jpg" %>');">
   <div class="container">
     <h1>Welcome to Sports Buddy</h1>
-    <p>Discover activities and connect with people from your city</p>
+    <p>Discover activities and connect with people nearby</p>
       <div class="d-flex justify-content-center p-5">
         <%= form_tag sports_path, method: :get do %>
           <div class="row form-inline text-secondary" id="search-data" data-sports="<%= @sports_selection.to_json %>" >
@@ -19,27 +19,29 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
 </div>
 
 <div class="container-cards-map d-flex">
-    <div class="cards">
-      <% @sports.each do |sport| %>
-        <div class="card">
-          <%= cl_image_tag sport.photo.key, class: "card-img-top" %>
-          <div class="card-boddy">
-            <div class="d-flex justify-content-between align-items-center"> <h2><%= sport.name %> </h2>
-              <p class="card-text"><%= sport.description%></p>
-              <%= link_to "view details", sport_path(sport), class: "btn btn-link" %>
+  <div class="col-7">
+        <div class="cards">
+          <% @sports.each do |sport| %>
+            <div class="card-sport">
+              <div class="card-title col-8" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path sport.photo.key, height: 300, width: 400, crop: :fill %>')">
+                <h2><%= sport.name %></h2>
+                </div>
+                <div class="card-boddy col-4">
+                  <div class="d-flex justify-content-between align-items-center">
+                  <!-- <p class="card-text"><%= sport.description%></p> -->
+                  <%= link_to "Find a buddy", sport_path(sport), class: "btn-buddy btn-warning" %>
+                </div>
+              </div>
             </div>
-          </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
-  <div id="map"
-    style="width: 100%; height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+    <div class="card-map col-5">
+      <div id="map"
+        style="width: 100%; height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
   </div>
 </div>
-
-
-
-
 

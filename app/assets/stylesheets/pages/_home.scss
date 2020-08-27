@@ -8,19 +8,13 @@
 //product image+title+description+CTA
 .cards {
   overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   align-items: center;
   display: inline;
   padding: 16px;
 }
 
 //image
-.cards img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
-}
+.cards
 
 //title+description+CTA
 .card-boddy {
@@ -44,14 +38,41 @@
 }
 
 //CTA
-.btn {
+.btn-buddy {
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 30px;
+  font-weight: lighter;
+  opacity: 0.6;
+}
+
+.card-title {
+  img {
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  width:100%;
+  height:120px;
+  opacity:0.8;
+  }
+
+  h2 {
+    top:20px;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+}
+
+.card-sport {
+  background: white;
+  position:relative;
+  display:flex;
+  margin-bottom: 5px;
 
 }
 
-
-
-.card-product h2 {
-
+.card-map {
+  padding: 16px;
 }
-
-
