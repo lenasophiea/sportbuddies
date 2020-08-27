@@ -34,19 +34,57 @@
 
 .avatar-large {
   border-radius: 50%;
-  position: absolute;
   width: 150px;
   height: 150px;
-  left: 831px;
-  top: 278px;
+  margin-left: 50px;
 }
 
+.profile {
+  width:900px;
+}
 .description {
-  position: absolute;
-width: 597px;
-height: 152px;
-left: 175px;
-top: 281px;
-border: 1px solid;
-drop-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-weight: normal;
+  padding: 20px;
+  background: #F9F9F9;
+  width: 780px;
+  height: 150px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
+  border-radius: 8px;
+
+}
+
+.description p {
+ font-weight: bold;
+}
+
+.btn-ghost {
+  color: #0805A8;
+  border: 1px solid #0805A8;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  margin-top: 16px;
+  margin-right: 8px;
+}
+
+.tags {
+  width: 400px;
+  }
+
+.border {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
+  padding: 40px;
+    border-radius: 5px;
+    margin-top: 40px;
+}
+
+.textlist {
+  margin-top: 20px;
+}
+
+.lists li {
+  margin-top: 10px;
+  font-weight: normal;
 }
