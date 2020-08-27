@@ -5,16 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 require 'faker'
 require "open-uri"
 
-puts "Deleting exhisting users and sports"
+
+puts "Deleting existing users and sports"
+Conversation.destroy_all
 User.destroy_all
 Sport.destroy_all
+BuddyRequest.destroy_all
 
 puts "Creating users"
 
-  names = %w[amelie lena mohit]
+  names = %w[amelie lena mohit marcel jana]
   names.each do |name|
     name = User.new(
       email: "#{name}@lewagon.com",
@@ -65,7 +69,37 @@ puts "Creating sports"
 end
 puts "#{Sport.count} sports created"
 
+puts "creating buddy_requests"
+  3.times do
+  buddy_request = BuddyRequest.new(
+  sport: Sport.last,
+  user: User.all.sample,
+  date: Date.new(2020,9,1)
+  )
+  buddy_request.save!
+  end
 
-
+puts "creating user with image"
+1.times do
+  user = User.create(
+  name: "mona",
+  description: "She is a SEO specialist and lives in Aus",
+  age: "30",
+  gender:"female",
+  email: "mona@lewagon.com",
+  password: "123456",
+  )
+  url = 'https://res.cloudinary.com/dminhw5d0/image/upload/v1598451035/pexels-the-lazy-artist-gallery-1289107_picw0h.jpg'
+  filename = File.basename(URI.parse(url).path)
+  file = URI.open(url)
+  user.photo.attach(io: file, filename: filename)
+  user.save!
+  buddy_request = BuddyRequest.new(
+    sport: Sport.last,
+    user: user,
+    date: Date.new(2020,9,1)
+    )
+  buddy_request.save!
+end
 
 

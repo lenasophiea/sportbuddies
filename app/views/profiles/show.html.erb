@@ -1,0 +1,11 @@
+<h1>hello</h1>
+<div class="container">
+  <div class="description">
+    <%= @user.description %>
+  </div>
+
+  <div>
+<%= cl_image_tag @user.photo.key, class: "avatar-large" %>
+  <%= @user.name %>
+  </div>
+</div>
