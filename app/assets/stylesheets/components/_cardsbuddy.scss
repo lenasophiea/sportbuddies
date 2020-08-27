@@ -31,3 +31,22 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
+.avatar-large {
+  border-radius: 50%;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  left: 831px;
+  top: 278px;
+}
+
+.description {
+  position: absolute;
+width: 597px;
+height: 152px;
+left: 175px;
+top: 281px;
+border: 1px solid;
+drop-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

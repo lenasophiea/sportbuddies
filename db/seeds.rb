@@ -86,7 +86,7 @@ puts "creating user with image"
   email: "mona@lewagon.com",
   password: "123456",
   )
-  url = ['https://res.cloudinary.com/dminhw5d0/image/upload/v1598451035/pexels-the-lazy-artist-gallery-1289107_picw0h.jpg']
+  url = ['https://res.cloudinary.com/dminhw5d0/image/upload/v1598451035/pexels-the-lazy-artist-gallery-1289107_picw0h.jpg'].sample
   filename = File.basename(URI.parse(url).path)
   file = URI.open(url)
   user.photo.attach(io: file, filename: filename)
