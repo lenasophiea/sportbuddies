@@ -2,7 +2,7 @@ import 'js-autocomplete/auto-complete.css';
 import autocomplete from 'js-autocomplete';
 
 const autocompleteSearch = function() {
-  const sports = JSON.parse(document.getElementById('search-data').dataset.sports)
+  const sports = document.getElementById('search-data')
   const searchInput = document.getElementById('query_sport');
   console.log(sports)
 
@@ -13,7 +13,7 @@ const autocompleteSearch = function() {
       minChars: 1,
       source: function(term, suggest){
           term = term.toLowerCase();
-          const choices = sports;
+          const choices = JSON.parse((sports).dataset.sports);
           const matches = [];
           for (let i = 0; i < choices.length; i++)
               if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);

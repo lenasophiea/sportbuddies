@@ -27,11 +27,16 @@ import "bootstrap";
 import { autocompleteSearch } from '../components/autocomplete';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { initMapbox } from '../packs/init_mapbox';
+
+import { initConversationCable } from '../channels/conversation_channel'
+
+import { initMapbox } from '../components/init_mapbox';
+
 
 
 document.addEventListener('turbolinks:load', () => {
   autocompleteSearch();
+  initConversationCable();
   // Call your functions here, e.g:
   // initSelect2();
   setTimeout(() => {

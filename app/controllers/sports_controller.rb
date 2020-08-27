@@ -1,6 +1,7 @@
 class SportsController < ApplicationController
 
   def index
+
     @sports = policy_scope(Sport)
 
     @sports_selection = Sport.pluck(:name).sort
@@ -13,7 +14,7 @@ class SportsController < ApplicationController
       @sports = Sport.all
     end
 
-    @sports_geo = Sport.geocoded # returns flats with coordinates
+    @sports_geo = @sports.geocoded # returns flats with coordinates
 
     @markers = @sports_geo.map do |sport|
       {
