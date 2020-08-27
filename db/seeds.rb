@@ -5,12 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
- require 'faker'
- require 'uri'
+
+require 'faker'
+require "open-uri"
 
 
-
-puts "Deleting exhisting users and sports"
+puts "Deleting existing users and sports"
+Conversation.destroy_all
 User.destroy_all
 Sport.destroy_all
 BuddyRequest.destroy_all
@@ -57,12 +58,14 @@ puts "Creating sports"
 ]
 
 6.times do |i|
+  file = URI.open('https://europa.eu/youth/sites/default/files/article/55343908%20-%20%C2%A9%20shutterstock.com%20-%20YanLev_4.jpg')
   sport = Sport.new(
     name: Faker::Team.sport,
     description: "Super sport to have fun!",
-    address: addresses[i],
+    address: addresses[i]
   )
   sport.save!
+  sport.photo.attach(io: file, filename: "sport.jpg", content_type: 'image/jpg')
 end
 puts "#{Sport.count} sports created"
 
@@ -86,7 +89,7 @@ puts "creating user with image"
   email: "mona@lewagon.com",
   password: "123456",
   )
-  url = ['https://res.cloudinary.com/dminhw5d0/image/upload/v1598451035/pexels-the-lazy-artist-gallery-1289107_picw0h.jpg'].sample
+  url = 'https://res.cloudinary.com/dminhw5d0/image/upload/v1598451035/pexels-the-lazy-artist-gallery-1289107_picw0h.jpg'
   filename = File.basename(URI.parse(url).path)
   file = URI.open(url)
   user.photo.attach(io: file, filename: filename)
