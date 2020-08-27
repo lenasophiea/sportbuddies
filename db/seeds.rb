@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-require 'uri'
 require "open-uri"
 
 
-puts "Deleting exhisting users and sports"
+puts "Deleting existing users and sports"
+Conversation.destroy_all
 User.destroy_all
 Sport.destroy_all
 BuddyRequest.destroy_all
@@ -89,7 +89,7 @@ puts "creating user with image"
   email: "mona@lewagon.com",
   password: "123456",
   )
-  url = ['https://res.cloudinary.com/dminhw5d0/image/upload/v1598451035/pexels-the-lazy-artist-gallery-1289107_picw0h.jpg']
+  url = 'https://res.cloudinary.com/dminhw5d0/image/upload/v1598451035/pexels-the-lazy-artist-gallery-1289107_picw0h.jpg'
   filename = File.basename(URI.parse(url).path)
   file = URI.open(url)
   user.photo.attach(io: file, filename: filename)

@@ -6,8 +6,11 @@ Rails.application.routes.draw do
     resources :sports, only: [:index, :show] do
       resources :buddy_requests, only: :create
   end
-
-  resources :buddy_requests, only: :show
+  resources :buddy_requests, only: :show do
     resources :profiles, only: :show do
+      resources :conversations, only: :create
+    end
   end
+  resources :conversations, only: :show
+
 end
