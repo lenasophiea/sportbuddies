@@ -3,7 +3,7 @@
   <div class="border_buddy">
     <% @users.each do |buddy| %>
       <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <%= cl_image_tag buddy.photo.key %>
           <div class="card-product-infos">
          <div>  <h2><%= buddy.name %></h2>
             <p><%= buddy.description.truncate(60)%></p>
