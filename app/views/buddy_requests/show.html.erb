@@ -5,7 +5,7 @@
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <div class="card-product-infos">
          <div>  <h2><%= buddy.name %></h2>
-            <p><%= buddy.description %></p>
+            <p><%= buddy.description.truncate(60)%></p>
           </div>
           <div class="d-flex justify-content-between" >  <p> <%= buddy.age %></p>
              <div class="cardlinks"> <%= link_to "Details", buddy_request_profile_path(@buddy_request, buddy), class: "btn btn-link" %>
