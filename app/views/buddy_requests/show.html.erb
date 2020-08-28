@@ -8,9 +8,8 @@
         <p><%= buddy.description %></p>
         <p> <%= buddy.age %></p>
           <%= link_to "view details", buddy_request_profile_path(@buddy_request, buddy), class: "btn btn-link" %>
-        <%= link_to "send message", buddy_request_profile_conversations_path(@buddy_request, buddy), method: :post, class: "btn btn-link" %>
+          <%= link_to "send message", buddy_request_profile_conversations_path(@buddy_request, buddy), method: :post, class: "btn btn-link" %>
       </div>
     </div>
   <% end %>
 </div>
-
