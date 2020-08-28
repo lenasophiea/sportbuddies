@@ -24,7 +24,7 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
   <div class="cards ">
     <% @sports.each do |sport| %>
     <div class="card">
-      <%= cl_image_tag sport.photo.key, class: "card-img-top" %>
+     <div class="cardimgcontainer"> <%= cl_image_tag sport.photo.key %> </div>
       <div  class = "card-info">
        <div class="pl-3"> <h2><%= sport.name.capitalize %></h2>
         <p><i class="fas fa-map-marker-alt"></i> <%= sport.address.truncate(25) %></p>
