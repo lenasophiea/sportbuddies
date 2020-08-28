@@ -1,15 +1,13 @@
 <%= link_to "Back to buddy list", buddy_request_path(@buddy_request)%>
 <div class="container col-lg-8">
   <div class="border">
-    <h1><%= @user.name %></h1>
+    <h1><%=@user.name %></h1>
     <div class=" d-flex justify-content-start">
       <div class="description" >
          <p>Bio</p>
         <%= @user.description %>
       </div>
-      <div>
-        <%= cl_image_tag @user.photo.key, class: "avatar-large" %>
-      </div>
+
 
     </div>
 
@@ -34,7 +32,7 @@
           <li>Random text </li>
         </div>
       </div>
-      <%= link_to "Message", buddy_request_profile_conversations_path(@user.buddy_requests, @user), method: :post, class: "btn btn-warning btn-align-end"  %>
+      <%= link_to "Message", buddy_request_profile_conversations_path(@buddy_request, @user), method: :post, class: "btn btn-warning btn-align-end"  %>
   </div>
 </div>
 

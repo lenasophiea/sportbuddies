@@ -1,5 +1,6 @@
 <div class="container">
-<h1><%= @conversation.receiver.name %></h1>
+  <div class="border">
+<h1>Hi, chat with your <%= @conversation.receiver.name.capitalize %> </h1>
 <div id="messages" data-chatroom-id="<%= @conversation.id %>">
   <% @conversation.messages.each do |message| %>
     <div class="message-container" id="message-<%= message.id %>">
@@ -13,10 +14,11 @@
 </div>
 
 
-  <div class="form-row">
+  <div class="form-group">
       <%= simple_form_for [ @conversation, @message ], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: "Send a message to #{@conversation.receiver.name}" %>
+      <%= f.input :content, label: false, placeholder: "Send a message to #{@conversation.receiver.name.capitalize} and ask when she's free..." %>
       <%= f.button :submit, 'Send', class: "btn btn-primary text-white" %>
       <% end %>
+  </div>
   </div>
 </div>
