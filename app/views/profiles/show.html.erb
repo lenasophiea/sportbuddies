@@ -1,38 +1,35 @@
 <%= link_to "Back to buddy list", buddy_request_path(@buddy_request)%>
 <div class="container col-lg-8">
   <div class="border">
-    <h1><%=@user.name %></h1>
+    <h1><%= @user.name %></h1>
     <div class=" d-flex justify-content-start">
       <div class="description" >
          <p>Bio</p>
         <%= @user.description %>
       </div>
-
-
+      <div>
+        <%= cl_image_tag @user.photo.key, class: "avatar-large" %>
+      </div>
     </div>
-
     <div class=" d-flex justify-content-between mt-5">
       <div class= "tags" >
         <h3>Favourite Sports</h3>
-          <%= link_to "Sport 1", "#", class: "btn btn-ghost" %>
-          <%= link_to "Sport 2", "#", class: "btn btn-ghost" %>
-          <%= link_to "Sport 3", "#", class: "btn btn-ghost" %>
-          <%= link_to "Sport 4", "#", class: "btn btn-ghost" %>
-          <%= link_to "Sport 5", "#", class: "btn btn-ghost" %>
-          <%= link_to "Sport 6", "#", class: "btn btn-ghost" %>
+          <%= link_to "Football", "#", class: "btn btn-ghost" %>
+          <%= link_to "Volleyball", "#", class: "btn btn-ghost" %>
+          <%= link_to "Cycling", "#", class: "btn btn-ghost" %>
+          <%= link_to "Tennis", "#", class: "btn btn-ghost" %>
+          <%= link_to "Swimming", "#", class: "btn btn-ghost" %>
+          <%= link_to "Basketball ", "#", class: "btn btn-ghost" %>
       </div>
-    </div>
-
-
       <div class="lists ">
         <h3>Club memberships</h3>
         <div class=textlist>
-          <li>Random text </li>
-          <li>Random text </li>
-          <li>Random text </li>
+          <li>Urban sports club </li>
+          <li>Insel sports club</li>
+          <li>Berliner sports club </li>
         </div>
       </div>
       <%= link_to "Message", buddy_request_profile_conversations_path(@buddy_request, @user), method: :post, class: "btn btn-warning btn-align-end"  %>
+   </div>
   </div>
 </div>
-

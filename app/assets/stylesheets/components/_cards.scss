@@ -1,3 +1,7 @@
+.card {
+ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
+ border-radius: 5px;
+}
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -8,10 +12,25 @@
 .card-body {
   display: flex;
    flex-direction: column;
-  p {
-    flex-grow: 1;
-  }
 }
+
+.container-map {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:20px;
+  padding: 0 24px;
+  padding-top: 36px;
+}
+
+.heading {
+  padding-top: 36px;
+  padding-left: 30px;
+}
+
+.btn-home {
+align-self: center;
+}
+
 .btn-warning {
   width: fit-content;
   padding-left: 32px;
@@ -40,4 +59,17 @@
   position: absolute;
   bottom: 16px;
   left: 16px;
+}
+
+.card-info {
+justify-content: left;
+padding-left: 16px;
+display: flex;
+flex-direction: column;
+padding-top: 16px;
+padding-bottom: 8px;
+  p {
+    flex-grow: 1;
+    height: 36px;
+  }
 }

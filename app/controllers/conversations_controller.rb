@@ -23,7 +23,7 @@ class ConversationsController < ApplicationController
       @conversation.save
       redirect_to conversation_path(@conversation)
     end
-    @sport = Sport.find(params[:id])
+
   end
 
   def show
