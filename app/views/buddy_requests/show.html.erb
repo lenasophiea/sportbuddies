@@ -1,11 +1,12 @@
 
 <div class="container col-lg-8">
   <div class="border_buddy">
+      <h2>Buddy list</h2>
     <% @users.each do |buddy| %>
       <div class="card-product">
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <div class="card-product-infos">
-         <div>  <h2><%= buddy.name %></h2>
+         <div>  <h2><%= buddy.name%></h2>
             <p><%= buddy.description.truncate(60)%></p>
           </div>
           <div class="d-flex justify-content-between" >  <p> <%= buddy.age %></p>
