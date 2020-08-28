@@ -6,6 +6,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  border-radius: 10px;
 }
 
 .card-product img {
@@ -21,7 +22,7 @@
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
@@ -29,7 +30,13 @@
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
+  padding: 16px 16px 4px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  height: 100%;
 }
 
 .avatar-large {
@@ -76,8 +83,8 @@
 .border {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
   padding: 40px;
-    border-radius: 5px;
-    margin-top: 40px;
+  border-radius: 5px;
+  margin-top: 40px;
 }
 
 .textlist {
