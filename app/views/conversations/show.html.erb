@@ -1,5 +1,5 @@
-<h1>THIS IS CONVERSATION VIEW </h1>
-<h1>#<%= @conversation %></h1>
+<div class="container">
+<h1><%= @conversation.receiver.name %></h1>
 <div id="messages" data-chatroom-id="<%= @conversation.id %>">
   <% @conversation.messages.each do |message| %>
     <div class="message-container" id="message-<%= message.id %>">
@@ -19,3 +19,4 @@
       <%= f.button :submit, 'Send', class: "btn btn-primary text-white" %>
       <% end %>
   </div>
+</div>
