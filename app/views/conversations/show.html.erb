@@ -1,21 +1,25 @@
-<h1>THIS IS CONVERSATION VIEW </h1>
-<h1>#<%= @conversation %></h1>
+<div class="container">
+  <div class="border">
+<h1 class="text-warning">Hi <%= @conversation.sender.name %>, chat with <%= @conversation.receiver.name.capitalize %></h1>
 <div id="messages" data-chatroom-id="<%= @conversation.id %>">
   <% @conversation.messages.each do |message| %>
-    <div class="message-container" id="message-<%= message.id %>">
+    <div class="message-container <%= "sender-message" if message.user == current_user %>" id="message-<%= message.id %>">
       <i class="author">
-        <span><%= message.user.name %></span>
+        <span class="text-primary font-italic"><%= message.user.name %></span>
         <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
       </i>
       <p><%= message.content %></p>
     </div>
+
   <% end %>
 </div>
 
 
-  <div class="form-row">
+  <div class="form-group">
       <%= simple_form_for [ @conversation, @message ], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: "Send a message to #{@conversation.receiver.name}" %>
+      <%= f.input :content, label: false, placeholder: "Send a message to #{@conversation.receiver.name.capitalize} and ask when she's free..." %>
       <%= f.button :submit, 'Send', class: "btn btn-primary text-white" %>
       <% end %>
   </div>
+  </div>
+</div>
