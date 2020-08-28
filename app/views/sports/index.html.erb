@@ -27,7 +27,7 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
       <%= cl_image_tag sport.photo.key, class: "card-img-top" %>
       <div  class = "card-info">
        <div class="pl-3"> <h2><%= sport.name.capitalize %></h2>
-        <p><i class="fas fa-map-marker-alt"></i> <%= sport.address%></p>
+        <p><i class="fas fa-map-marker-alt"></i> <%= sport.address.truncate(25) %></p>
       </div>
         <div class="line-orange" >
       <%= link_to "Find buddy", sport_path(sport), class: "btn btn-link btn-home" %>
