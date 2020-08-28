@@ -32,4 +32,20 @@ class SportsController < ApplicationController
     # @sports = Sports.all
   end
 
+  def favorite
+     type = params[:type]
+    if type == "favorite"
+      current_user.favorites << @sport
+      redirect_to :back, notice: 'You favorited #{@sport.name}'
+
+    elsif type == "unfavorite"
+      current_user.favorites.delete(@sport)
+      redirect_to :back, notice: 'Unfavorited #{@sport.name}'
+
+    else
+      redirect_to :back, notice: 'Nothing happened.'
+    end
+  end
+
+
 end
