@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @buddy_request = BuddyRequest.find(params[:buddy_request_id])
         authorize @user
   end
 

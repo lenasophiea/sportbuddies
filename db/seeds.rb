@@ -82,7 +82,7 @@ puts "creating buddy_requests"
 puts "creating user with image"
 1.times do
   user = User.create(
-  name: "mona",
+  name: "Mona",
   description: "She is a SEO specialist and lives in Aus",
   age: "30",
   gender:"female",
