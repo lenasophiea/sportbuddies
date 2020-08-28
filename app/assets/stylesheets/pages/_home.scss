@@ -1,78 +1,75 @@
 // Specific CSS for your home-page
 
-// product image+title+description+CTA+map
-.container-cards-map {
-
-}
-
-//product image+title+description+CTA
-.cards {
+//product image+title+CTA
+.cards-sport {
   overflow: hidden;
-  align-items: center;
-  display: inline;
-  padding: 16px;
-}
-
-//image
-.cards
-
-//title+description+CTA
-.card-boddy {
-
-}
-
-//title
-.d-flex {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-//description
-.card-text {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-//CTA
-.btn-buddy {
-  border: 1px solid #4A4A4A;
-  padding: 8px 24px;
-  border-radius: 30px;
-  font-weight: lighter;
-  opacity: 0.6;
-}
-
-.card-title {
-  img {
-  height: auto;
   width: auto;
-  object-fit: contain;
-  width:100%;
-  height:120px;
-  opacity:0.8;
-  }
+  height: 200px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-img {
+  background: white;
+  display:flex;
+  margin-bottom: 5px;
+  width: auto;
+  img {
+    position: absolute;
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    opacity:0.8;
+    }
 
   h2 {
+    position:relative;
     top:20px;
     margin: 0 auto;
     text-align: center;
     justify-content: center;
     font-weight: bold;
-  }
+    }
 }
 
-.card-sport {
-  background: white;
-  position:relative;
-  display:flex;
-  margin-bottom: 5px;
-
+//CTA
+.btn-buddy {
+  position: absolute;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: lighter;
+  justify-content: center;
 }
 
 .card-map {
   padding: 16px;
+}
+
+.row form {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.query-sport {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.query-address {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.row {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.btn-activity {
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 4px;
 }
