@@ -63,7 +63,6 @@ align-self: center;
 
 .card-info {
 justify-content: left;
-padding-left: 16px;
 display: flex;
 flex-direction: column;
 padding-top: 16px;
@@ -72,4 +71,11 @@ padding-bottom: 8px;
     flex-grow: 1;
     height: 36px;
   }
+}
+
+.line-orange {
+  border-top: 1px solid orange;
+  padding: none;
+  display: flex;
+  justify-content: center;
 }
