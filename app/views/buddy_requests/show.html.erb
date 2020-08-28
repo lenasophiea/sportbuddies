@@ -1,15 +1,21 @@
-<h1>welcome</h1>
-<div class="container">
-  <% @users.each do |buddy| %>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-       <h2><%= buddy.name %></h2>
-        <p><%= buddy.description %></p>
-        <p> <%= buddy.age %></p>
-          <%= link_to "view details", buddy_request_profile_path(@buddy_request, buddy), class: "btn btn-link" %>
-          <%= link_to "send message", buddy_request_profile_conversations_path(@buddy_request, buddy), method: :post, class: "btn btn-link" %>
+
+<div class="container col-lg-8">
+  <div class="border_buddy">
+    <% @users.each do |buddy| %>
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+         <div>  <h2><%= buddy.name %></h2>
+            <p><%= buddy.description %></p>
+          </div>
+          <div class="d-flex justify-content-between" >  <p> <%= buddy.age %></p>
+             <div class="cardlinks"> <%= link_to "Details", buddy_request_profile_path(@buddy_request, buddy), class: "btn btn-link" %>
+            <%= link_to "Message", buddy_request_profile_conversations_path(@buddy_request, buddy), method: :post, class: "btn btn-link" %>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
     @buddy_request = BuddyRequest.find(params[:buddy_request_id])
 
     # @user.buddy_request = @buddy_request
+
     authorize @user
   end
 
