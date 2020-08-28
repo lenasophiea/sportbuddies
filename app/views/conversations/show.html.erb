@@ -1,15 +1,16 @@
 <div class="container">
   <div class="border">
-<h1>Hi, chat with your <%= @conversation.receiver.name.capitalize %> </h1>
+<h1 class="text-warning">Hi <%= @conversation.sender.name %>, chat with <%= @conversation.receiver.name.capitalize %></h1>
 <div id="messages" data-chatroom-id="<%= @conversation.id %>">
   <% @conversation.messages.each do |message| %>
-    <div class="message-container" id="message-<%= message.id %>">
+    <div class="message-container <%= "sender-message" if message.user == current_user %>" id="message-<%= message.id %>">
       <i class="author">
-        <span><%= message.user.name %></span>
+        <span class="text-primary font-italic"><%= message.user.name %></span>
         <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
       </i>
       <p><%= message.content %></p>
     </div>
+
   <% end %>
 </div>
 
