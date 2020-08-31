@@ -35,3 +35,5 @@ class FavoriteSportsController < ApplicationController
   end
 
 end
+
+
