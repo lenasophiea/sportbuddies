@@ -4,9 +4,13 @@
     height: 40px;
     border-radius: 4px;
     border: none;
-    &::placeholder {
-      padding-left: 8px;
+    &[type="text"] {
+     padding-left: 12px;
     }
+
   }
 }
 
+.bannertext {
+  width: 600px;
+  }

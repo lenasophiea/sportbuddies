@@ -5,11 +5,19 @@ class ConversationPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    true
+  end
+
   def create?
     true
   end
 
   def show?
-    true
+    # user.conversations.any? do |conversation|
+    #   conversation.sender_id == record.sender_id || conversation.receiver_id == record.receiver_id
+    # end
+    record.sender == user || record.receiver == user
   end
+
 end

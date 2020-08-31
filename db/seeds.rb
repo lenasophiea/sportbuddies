@@ -227,14 +227,15 @@ sport.save!
     sport.photo.attach(io: file, filename: "volleyball.jpg", content_type: 'image/jpg')
   end
   puts "#{Sport.count}created"
-# puts "creating buddy_requests"
-#   3.times do
-#   buddy_request = BuddyRequest.new(
-#   sport: Sport.last,
-#   user: User.all.sample,
-#   date: Date.new(2020,9,1)
-#   )
-#   buddy_request.save!
-#   end
+
+puts "creating buddy_requests"
+  3.times do
+  buddy_request = BuddyRequest.new(
+  sport: Sport.last,
+  user: User.first,
+  date: Date.new(2020,9,1)
+  )
+  buddy_request.save!
+  end
 
 
