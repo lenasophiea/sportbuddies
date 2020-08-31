@@ -11,8 +11,8 @@
 }
 
 .banner h1 { margin: 0;
-  color: #0805A8;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  color: #1E352F;
+  margin-top: 20px;
   font-size: 32px;
   font-weight: bold;
   text-align: center;
@@ -21,12 +21,23 @@
 .banner p {
   font-size: 20px;
   font-weight: semibold;
-  color: #0805A8;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  color: #1E352F;
+
   text-align: center;
 }
 
 .banner a {
   display: inline-block;
   text-align: center;
+}
+
+.bannertext {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
+  border-radius: 5px;
+  background: white;
+  opacity:.8;
+  width: 600px;
+  margin: auto;
 }

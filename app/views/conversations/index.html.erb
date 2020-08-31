@@ -1,0 +1,32 @@
+<div class="container pt-5">
+    <% @conversations.each do |conversation| %>
+      <div class="card-product">
+        <% if current_user.id == conversation.sender.id %>
+        <%= cl_image_tag conversation.receiver.photo.key, class: "avatar" %>
+          <div class="card-product-infos">
+         <div> <h2> <%= link_to conversation.receiver.name, conversation_path(conversation) %> </h2>
+            <p><i><%= conversation.messages.last.content %></i></p>
+          </div>
+          <div class="d-flex justify-content-between" >
+             <div class="cardlinks"> <%= link_to "Profile", buddy_request_profile_path(conversation.buddy_request_id, conversation.receiver), class: "btn btn-link" %>
+            </div>
+          </div>
+        </div>
+        <% else %>
+        <%= cl_image_tag conversation.sender.photo.key, class: "avatar" %>
+          <div class="card-product-infos">
+         <div>  <h2><%= conversation.sender.name %></h2>
+            <p><i><%= conversation.messages.last.content %></i></p>
+          </div>
+          <div class="d-flex justify-content-between" >
+             <div class="cardlinks"> <%= link_to "Profile", buddy_request_profile_path(conversation.buddy_request_id, conversation.sender), class: "btn btn-link" %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+       <% end %>
+       <% end %>
+</div>
+
+
