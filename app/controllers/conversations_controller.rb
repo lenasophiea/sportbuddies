@@ -1,5 +1,18 @@
 class ConversationsController < ApplicationController
 
+  def index
+    @conversations = policy_scope(Conversation)
+    @conversations = Conversation.where(receiver_id: current_user.id).or(Conversation.where(sender_id: current_user.id))
+    # raise
+  end
+
+  def show
+    @conversation = Conversation.find(params[:id])
+    @message = Message.new
+    authorize @conversation
+    # @messages = Message.find()
+  end
+
   def create
     @receiver = User.find(params[:profile_id])
     @sender = current_user
@@ -23,14 +36,6 @@ class ConversationsController < ApplicationController
       @conversation.save
       redirect_to conversation_path(@conversation)
     end
-
-  end
-
-  def show
-    @conversation = Conversation.find(params[:id])
-    @message = Message.new
-    authorize @conversation
-    # @messages = Message.find()
   end
 
 end
