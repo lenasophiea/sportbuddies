@@ -2,10 +2,10 @@
 style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= image_path "banner.jpg" %>');">
   <div class="container">
     <h1>Welcome to Sports Buddy</h1>
-    <p>Discover activities and connect with people nearby</p>
+    <p>Discover activities and connect with people around you</p>
       <div class="d-flex justify-content-center p-5">
         <%= form_tag sports_path, method: :get do %>
-          <div class="row form-inline text-secondary" id="search-data" data-sports="<%= @sports_selection.to_json %>" >
+          <div id="search-data" data-sports="<%= @sports_selection.to_json %>" >
             <%= text_field_tag :query_sport, params[:query_sport], autocomplete: :off, placeholder: "Chose a sport" %>
             <%= text_field_tag :query_address,
               params[:query_address],
@@ -18,45 +18,38 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
   </div>
 </div>
 
-<div class="container-cards-map d-flex">
-  <div class="col-7">
-        <div class="cards">
-          <% @sports.each do |sport| %>
-            <div class="card-sport">
-              <div class="card-title col-8" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path sport.photo.key, height: 300, width: 400, crop: :fill %>')">
-                <h2><%= sport.name %></h2>
-                </div>
-                <div class="card-boddy col-4">
-                  <div class="d-flex justify-content-between align-items-center">
-                  <!-- <p class="card-text"><%= sport.description%></p> -->
-                  <%= link_to "Find a buddy", sport_path(sport), class: "btn-buddy btn-warning" %>
-                </div>
-                <% if current_user %>
-                  <% favorite_sport = FavoriteSport.where(user_id: current_user.id, sport_id: sport.id).first %>
+<div class="heading"><h2>Recommended sports</h2></div>
 
+<div id ="btn" class="container-map">
+  <div class="cards ">
+    <% @sports.each do |sport| %>
+    <div class="card">
+     <div class="cardimgcontainer"> <%= cl_image_tag sport.photo.key %> </div>
+      <div  class = "card-info">
+       <div class="pl-3"> <h2><%= sport.name.capitalize %></h2>
+        <% if current_user %>
+          <% favorite_sport = FavoriteSport.where(user_id: current_user.id, sport_id: sport.id).first %>
+          <% if favorite_sport %>
+            <%= link_to "unfavorite", favorite_sport_path(favorite_sport), method: :delete %>
+          <% else %>
+            <%= link_to "favorite", sport_favorite_sports_path(sport, type: "favorite"), method: :post %>
+           <% end %>
+        <% end %>
+        <p><i class="fas fa-map-marker-alt"></i> <%= sport.address.truncate(25) %></p>
+      </div>
+        <div class="line-orange" >
+      <%= link_to "Find buddy", sport_path(sport), class: "btn btn-link btn-home" %>
+      </div>
+       </div>
+      </div>
+ <% end %>
+   </div>
 
-                  <% if favorite_sport %>
-                    <%= link_to "unfavorite", favorite_sport_path(favorite_sport), method: :delete %>
-                  <% else %>
-                    <%= link_to "favorite", sport_favorite_sports_path(sport, type: "favorite"), method: :post %>
-                   <% end %>
-                <% end %>
-
-
-              </div>
-            </div>
-          <% end %>
-        </div>
-  </div>
-    <div class="card-map col-5">
-      <div id="map"
-        style="width: 100%; height: 600px;"
+    <div id="map"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-  </div>
+    </div>
 </div>
-
 
 
 
