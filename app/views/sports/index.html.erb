@@ -18,7 +18,7 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
   </div>
 </div>
 
-<div class="heading"><h2>Recommended sports in Berlin </h2></div>
+<div class="heading"><h2>Recommended sports</h2></div>
 
 <div id ="btn" class="container-map">
   <div class="cards ">
@@ -43,3 +43,7 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
     </div>
 </div>
 
+<% if current_user %>
+  <%= link_to "favorite",   favorite_sport_path(@recipe, type: "favorite"), method: :put %>
+  <%= link_to "unfavorite", favorite_sport_path(@recipe, type: "unfavorite"), method: :put %>
+<% end %>
