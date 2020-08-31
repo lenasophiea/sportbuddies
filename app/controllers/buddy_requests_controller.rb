@@ -7,7 +7,7 @@ class BuddyRequestsController < ApplicationController
     @buddy_request.user = current_user
 
     if @buddy_request.save
-      redirect_to buddy_request_path(@buddy_request)
+      redirect_to sport_path(@sport, date: @buddy_request.date)
       authorize @buddy_request
     else
       render 'sports/show'
@@ -21,11 +21,11 @@ class BuddyRequestsController < ApplicationController
                  .where(buddy_requests: { sport: @buddy_request.sport, date: @buddy_request.date })
                  .where.not(id: current_user.id)
                  .distinct
-end
+  end
 
   private
 
   def buddy_request_params
-    params.require(:buddy_request).permit(:date, :sport_id)
+    params.require(:buddy_request).permit(:id, :date, :sport_id)
   end
 end

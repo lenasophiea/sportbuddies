@@ -1,4 +1,5 @@
 class SportsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:home]
 
   def index
 
@@ -27,9 +28,21 @@ class SportsController < ApplicationController
 
   def show
     @sport = Sport.find(params[:id])
+    @date = params[:date]
     @buddy_request = BuddyRequest.new
     authorize @sport
-    # @sports = Sports.all
+
+    # @buddy_request = BuddyRequest.find(params[:id])
+    authorize @buddy_request
+    @buddy_requests = BuddyRequest.where(buddy_requests: { sport: @sport, date: @date })
+                                 .where.not(user_id: current_user.id)
+                                 .distinct
+    # @users = User.joins(:buddy_requests)
+    @sports = Sport.all
   end
 
+  # for javascript autocomplete feature
+  def home
+  end
 end
+
