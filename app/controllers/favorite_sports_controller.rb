@@ -23,8 +23,9 @@ class FavoriteSportsController < ApplicationController
   def destroy
     @fav = FavoriteSport.find(params[:id])
     authorize @fav
-    @fav.destroy
-    redirect_to root_path
+    if @fav.destroy
+      redirect_to root_path
+    end
   end
 
   private

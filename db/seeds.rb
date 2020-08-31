@@ -33,41 +33,80 @@ puts "#{User.count} users created"
 
 puts "Creating sports"
   addresses = [
-  "Rudi-Dutschke-Straße 26, 10969 Berlin",
-  "Pariser Platz, 10117, Berlin",
-  "Platz der Republik 1, 11011, Berlin",
-  "Bodestraße 1-3, 10178 Berlin",
-  "Bernauer Straße 111, 13355 Berlin",
-  "Unter den Linden 2, 10117 Berlin",
-  "Panoramastraße 1 A, 10178 Berlin",
-  "Friedrichstraße 43-45, 10969 Berlin",
-  "Spandauer Damm 10, 14059 Berlin",
-  "Gendarmenmarkt, 10117 Berlin",
-  "Lindenstraße 9-14, 10969 Berlin",
-  "Trebbiner Straße 9, D-10963 Berlin-Kreuzberg",
-  "Cora-Berliner-Straße 1, 10117 Berlin",
-  "Str. des 17. Juni, 10785 Berlin",
-  "Bodestraße 1-3, 10178 Berlin",
-  "Schloßpl. 1, 10178 Berlin",
-  "Am Lustgarten, 10178 Berlin",
-  "Niederkirchnerstraße 8, 10963 Berlin",
-  "Hardenbergplatz 8, 10787 Berlin",
-  "Königin-Luise-Strasse 6-8, 14195 Berlin",
-  "Nikolaikirchplatz, 10178 Berlin",
-  "Breitscheidplatz, 10789 Berlin"
-]
+    "Rudi-Dutschke-Straße 26, 10969 Berlin",
+    "Pariser Platz, 10117, Berlin",
+    "Platz der Republik 1, 11011, Berlin",
+    "Bodestraße 1-3, 10178 Berlin",
+    "Bernauer Straße 111, 13355 Berlin",
+    "Unter den Linden 2, 10117 Berlin",
+    "Panoramastraße 1 A, 10178 Berlin",
+    "Friedrichstraße 43-45, 10969 Berlin",
+    "Spandauer Damm 10, 14059 Berlin",
+    "Gendarmenmarkt, 10117 Berlin",
+    "Lindenstraße 9-14, 10969 Berlin",
+    "Trebbiner Straße 9, D-10963 Berlin-Kreuzberg",
+    "Cora-Berliner-Straße 1, 10117 Berlin",
+    "Str. des 17. Juni, 10785 Berlin",
+    "Bodestraße 1-3, 10178 Berlin",
+    "Schloßpl. 1, 10178 Berlin",
+    "Am Lustgarten, 10178 Berlin",
+    "Niederkirchnerstraße 8, 10963 Berlin",
+    "Hardenbergplatz 8, 10787 Berlin",
+    "Königin-Luise-Strasse 6-8, 14195 Berlin",
+    "Nikolaikirchplatz, 10178 Berlin",
+    "Breitscheidplatz, 10789 Berlin"
+  ]
+  names = [
+    "Football",
+    "Cycling",
+    "Tennis",
+    "Swimming",
+    "Sailing",
+    "Boulder",
+    "Handball",
+    "Volleyball",
+    "Basketball",
+  ]
 
-6.times do |i|
-  file = URI.open('https://europa.eu/youth/sites/default/files/article/55343908%20-%20%C2%A9%20shutterstock.com%20-%20YanLev_4.jpg')
+puts "Creating sports Football"
+1.time do |i|
+  file = URI.open('https://images.unsplash.com/flagged/photo-1571771710019-ca58cf80f225?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60')
   sport = Sport.new(
-    name: Faker::Team.sport,
-    description: "Super sport to have fun!",
-    address: addresses[i]
-  )
-  sport.save!
-  sport.photo.attach(io: file, filename: "sport.jpg", content_type: 'image/jpg')
-end
-puts "#{Sport.count} sports created"
+    name: "Football",
+    description: "Cool sport to have fun!",
+    address: "Rudi-Dutschke-Straße 26, 10969 Berlin"
+    )
+sport.save!
+    sport.photo.attach(io: file, filename: "football.jpg", content_type: 'image/jpg')
+  end
+  puts "#{Sport.count} football sports created"
+
+puts "Creating sports cycling"
+1.time do |i|
+  file = URI.open('https://content.active.com/Assets/Active.com+Content+Site+Digital+Assets/Cycling/Galleries/Slow+Friends/Be+Supportive.jpg')
+  sport = Sport.new(
+    name: "Cycling"
+    description: "Cool sport to have fun!"
+    address: "Pariser Platz, 10117, Berlin"
+    )
+sport.save!
+    sport.photo.attach(io: file, filename: "cycling.jpg", content_type: 'image/jpg')
+  end
+  puts "#{Sport.count} cycling sports created"
+
+puts "Creating sports volleyball"
+1.time do |i|
+  file = URI.open('https://thumbs.dreamstime.com/b/teenage-friends-playing-volleyball-beach-14457507.jpg')
+  sport = Sport.new(
+    name: "Volleyball"
+    description: "Cool sport to have fun!"
+    address: "Platz der Republik 1, 11011, Berlin"
+    )
+sport.save!
+    sport.photo.attach(io: file, filename: "volleyball.jpg", content_type: 'image/jpg')
+  end
+  puts "#{Sport.count} volleyball sports created"
+
 
 puts "creating buddy_requests"
   3.times do

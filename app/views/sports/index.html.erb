@@ -33,12 +33,15 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
                 </div>
                 <% if current_user %>
                   <% favorite_sport = FavoriteSport.where(user_id: current_user.id, sport_id: sport.id).first %>
-                  <%= link_to "favorite", sport_favorite_sports_path(sport, type: "favorite"), method: :post %>
+
 
                   <% if favorite_sport %>
                     <%= link_to "unfavorite", favorite_sport_path(favorite_sport), method: :delete %>
+                  <% else %>
+                    <%= link_to "favorite", sport_favorite_sports_path(sport, type: "favorite"), method: :post %>
                    <% end %>
                 <% end %>
+
 
               </div>
             </div>
