@@ -1,7 +1,18 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: transparent;
+  z-index: 100;
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 0;
+
 }
+
+.nav-link {
+  color: $orange !important;
+}
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
