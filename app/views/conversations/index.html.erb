@@ -1,5 +1,5 @@
 <div class="container pt-5">
-  <% if @conversations.count < 1 %>
+  <% if @conversations.length < 1 %>
       <% @conversations.each do |conversation| %>
         <div class="card-product">
           <% if current_user.id == conversation.sender.id %>
