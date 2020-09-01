@@ -23,6 +23,11 @@
         <%= cl_image_tag request.user.photo.key %>
           <div class="card-product-infos">
          <div>  <h2><%= request.user.name%></h2>
+
+          <% request.user.favorite_sports.each do |favorite_sport| %>
+            <%= favorite_sport.sport.name %>
+          <% end %>
+
             <p><%= request.user.description.truncate(60)%></p>
           </div>
           <div class="d-flex justify-content-between" >  <p> <%= request.user.age %></p>
