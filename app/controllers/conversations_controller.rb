@@ -8,8 +8,15 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.find(params[:id])
+    @conversation.messages.each do |message|
+      if message.read == false
+        message.read = true
+        message.save
+      end
+    end
     @message = Message.new
     authorize @conversation
+
     # @messages = Message.find()
   end
 

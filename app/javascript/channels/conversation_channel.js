@@ -2,6 +2,7 @@ import consumer from "./consumer";
 
 const initConversationCable = () => {
   const messagesContainer = document.getElementById('messages');
+  const navbar = document.querySelector('.navbar-lewagon')
   if (messagesContainer) {
     const id = messagesContainer.dataset.chatroomId;
 
@@ -10,6 +11,18 @@ const initConversationCable = () => {
         console.log(data); // called when data is broadcast in the cable
         messagesContainer.insertAdjacentHTML('beforeend', data);
         document.getElementById('message_content').value = '';
+      },
+    });
+  }
+
+  if (navbar) {
+    const id = navbar.dataset.userId;
+    consumer.subscriptions.create({ channel: "UserChannel", id: id }, {
+      received(data) {
+        console.log(data);
+        const notificationBox = document.getElementById('notification-count')
+        notificationBox.innerText = data
+        // called when data is broadcast in the cable
       },
     });
   }

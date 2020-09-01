@@ -1,0 +1,32 @@
+.conversation-card {
+
+}
+
+.message-card img {
+
+}
+
+.message-card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.message-card p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.message-card .message-card-info {
+  padding: 16px 16px 4px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  height: 100%;
+}
+
