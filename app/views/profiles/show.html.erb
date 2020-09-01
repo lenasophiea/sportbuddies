@@ -14,7 +14,7 @@
     <div class=" d-flex justify-content-between mt-5">
       <div class= "tags" >
         <h3>Favourite Sports</h3>
-          <%= link_to "Football", "#", class: "btn btn-ghost" %>
+          <%= link_to favorite_sport.current_user, "#", class: "btn btn-ghost" %>
           <%= link_to "Volleyball", "#", class: "btn btn-ghost" %>
           <%= link_to "Cycling", "#", class: "btn btn-ghost" %>
           <%= link_to "Tennis", "#", class: "btn btn-ghost" %>
@@ -33,3 +33,9 @@
    </div>
   </div>
 </div>
+
+<% foreach favorite_sport.current_user do %>
+
+
+current_user
+CurrentUser.favorite_sports each do
