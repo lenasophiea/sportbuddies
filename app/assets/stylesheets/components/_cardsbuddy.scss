@@ -1,7 +1,7 @@
 .card-product {
   margin-bottom: 20px;
   overflow: hidden;
-  height: 120px;
+  height: 140px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -75,6 +75,9 @@
   transition: opacity 0.3s ease;
   margin-top: 16px;
   margin-right: 8px;
+  height: 30px;
+  font-size: 15px;
+  text-align: justify;
 }
 
 .tags {
