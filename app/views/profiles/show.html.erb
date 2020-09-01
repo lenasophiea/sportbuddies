@@ -1,4 +1,4 @@
-<%= link_to "Back to buddy list", buddy_request_path(@buddy_request)%>
+
 <div class="container col-lg-8">
   <div class="border">
     <h1><%= @user.name %></h1>
@@ -32,4 +32,5 @@
       <%= link_to "Message", buddy_request_profile_conversations_path(@buddy_request, @user), method: :post, class: "btn btn-warning btn-align-end"  %>
    </div>
   </div>
-</div>
+ </div>
+

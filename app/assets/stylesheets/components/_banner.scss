@@ -1,17 +1,18 @@
 .banner {
   position: relative;
+  top: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-size: cover;
   background-position: center;
-  height: 80vh;
+  height: 100vh;
   padding-left: 50px;
   opacity: 0.9;
 }
 
 .banner h1 { margin: 0;
-  color: #1E352F;
+  color: white;
   margin-top: 20px;
   font-size: 32px;
   font-weight: bold;
@@ -21,7 +22,7 @@
 .banner p {
   font-size: 20px;
   font-weight: semibold;
-  color: #1E352F;
+  color: white;
 
   text-align: center;
 }
@@ -31,13 +32,13 @@
   text-align: center;
 }
 
-.bannertext {
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
-  border-radius: 5px;
-  background: white;
-  opacity:.8;
-  width: 600px;
-  margin: auto;
-}
+// .bannertext {
+//   display: flex;
+//   flex-direction: column;
+//   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
+//   border-radius: 5px;
+//   background: white;
+//   opacity:.8;
+//   width: 600px;
+//   margin: auto;
+// }

@@ -21,6 +21,7 @@ BuddyRequest.destroy_all
 
 # puts "Creating users"
 
+
 #   names = %w[amelie lena mohit marcel jana]
 #   names.each do |name|
 #     name = User.new(
@@ -55,7 +56,7 @@ puts "creating user with image"
   #   date: Date.new(2020,9,1)
   #   )
   # buddy_request.save!
-end
+
 
 puts "creating user with image"
 1.times do
