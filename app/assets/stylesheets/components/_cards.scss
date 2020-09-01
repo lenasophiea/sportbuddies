@@ -62,6 +62,7 @@ align-self: center;
 }
 
 .card-info {
+position: relative;
 justify-content: left;
 display: flex;
 flex-direction: column;
@@ -88,4 +89,16 @@ padding-bottom: 8px;
   padding: none;
   display: flex;
   justify-content: center;
+}
+
+.fav {
+  position: absolute;
+  right: 15px;
+  font-size: 30px;
+  a {
+    color: #00BD9D;
+  }
+  a:hover{
+  color: #00BD9D;
+  }
 }

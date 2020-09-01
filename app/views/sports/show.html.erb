@@ -25,7 +25,7 @@
          <div>  <h2><%= request.user.name%></h2>
 
           <% request.user.favorite_sports.each do |favorite_sport| %>
-            <%= favorite_sport.sport.name %>
+          <div class="btn btn-ghost"> <%= favorite_sport.sport.name %> </div>
           <% end %>
 
             <p><%= request.user.description.truncate(60)%></p>
