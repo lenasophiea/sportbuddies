@@ -1,9 +1,8 @@
 <div class="banner text-center"
 style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= image_path "banner.jpg" %>');">
   <div class="container">
-   <div class = "bannertext"> <h1>Welcome to Sports Buddy</h1>
-     <p>Discover activities and connect with people around you</p></div>
-
+    <h1>Welcome to SportsBuddy</h1>
+     <p>Discover activities and connect with people around you</p>
       <div class="d-flex justify-content-center p-5">
         <%= form_tag sports_path, method: :get do %>
           <div id="search-data" data-sports="<%= @sports_selection.to_json %>" >
@@ -31,7 +30,7 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
      <div class="cardimgcontainer"> <%= cl_image_tag sport.photo.key %> </div>
       <div  class = "card-info">
        <div class="pl-3"> <h2><%= sport.name.capitalize %></h2>
-        <p><i class="fas fa-map-marker-alt"></i> <%= sport.address.truncate(25) %></p>
+        <p><i class="fas fa-map-marker-alt"></i> <%= sport.address.truncate(35) %></p>
       </div>
         <div class="line-orange" >
       <%= link_to "Find buddy", sport_path(sport), class: "btn btn-link btn-home" %>
