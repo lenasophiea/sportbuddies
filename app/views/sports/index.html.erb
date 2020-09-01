@@ -1,9 +1,8 @@
 <div class="banner text-center"
 style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= image_path "banner.jpg" %>');">
   <div class="container">
-   <div class = "bannertext"> <h1>Welcome to Sports Buddy</h1>
-     <p>Discover activities and connect with people around you</p></div>
-
+    <h1>Welcome to SportsBuddy</h1>
+     <p>Discover activities and connect with people around you</p>
       <div class="d-flex justify-content-center p-5">
         <%= form_tag sports_path, method: :get do %>
           <div id="search-data" data-sports="<%= @sports_selection.to_json %>" >
@@ -23,8 +22,10 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
 <% if params[:query_sport] %>
     <div class="heading"><h2> <%= " Search results for #{params[:query_sport]} in Berlin " %></h2></div>
 <% else %>
-<div class="heading"><h2> <%= " Recommended sports in Berlin " %></h2></div>
-  <% end %>
+<div class="heading">
+  <h2> <%= " Recommended sports in Berlin " %></h2>
+</div>
+<% end %>
 <div id ="btn" class="container-map">
   <div class="cards ">
     <% @sports.each do |sport| %>
@@ -34,21 +35,22 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
         </div>
         <div  class = "card-info">
           <i class="fa fa-heart-o" aria-hidden="true"></i>
-          <div class="pl-3"> <h2><%= sport.name.capitalize %></h2>
+          <div class="pl-3">
+            <h2><%= sport.name.capitalize %></h2>
             <p><i class="fas fa-map-marker-alt"></i> <%= sport.address.truncate(25) %></p>
           </div>
           <div class="fav">
             <% if current_user %>
               <% favorite_sport = FavoriteSport.where(user_id: current_user.id, sport_id: sport.id).first %>
-              <% if favorite_sport %>
+            <% if favorite_sport %>
                 <%= link_to favorite_sport_path(favorite_sport), method: :delete do %>
                 <i class="fas fa-heart"></i>
-                <% end %>
-              <% else %>
-                <%= link_to sport_favorite_sports_path(sport, type: "favorite"), method: :post do %>
+            <% end %>
+            <% else %>
+              <%= link_to sport_favorite_sports_path(sport, type: "favorite"), method: :post do %>
                 <i class="far fa-heart"></i>
-                <% end %>
-               <% end %>
+            <% end %>
+            <% end %>
             <% end %>
           </div>
           <div class="line-orange" >
@@ -64,4 +66,4 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 </div>
-
+</div>

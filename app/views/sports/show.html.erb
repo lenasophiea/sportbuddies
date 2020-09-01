@@ -1,11 +1,13 @@
 <div class="container col-lg-8 justify-content-center ">
  <div class="border_buddy">
-  <h1>Request a buddy for <%= @sport.name %> </h1>
-  <h4>Select a date to find a buddy</h4>
-    <div class="d-flex">
+ <h1>Request a buddy for <%= @sport.name %> </h1>
+  <div class ="detail_banner mt-3" style= "background-image: url('<%= cl_image_path @sport.photo.key %>')"></div>
+
+  <h4 class="mt-5">Select a date to find a buddy</h4>
+    <div class="d-flex" style="padding-left: 15px;">
       <%= simple_form_for([ @sport, @buddy_request ],remote: true) do |f| %>
       <div class="row form-inline text-secondary">
-        <%= f.input :date, as: :date, html5: true %>
+      <div class="search_box">  <%= f.input :date, as: :string, required: false, label: false, input_html: {class: "datepicker", autocomplete: "off"} %> </div>
         <%= f.button :submit, class: "btn btn-warning text-white" %>
       <% end %>
       </div>
@@ -14,11 +16,17 @@
 </div>
 
 
+
 <div class="container col-lg-8">
-  <div class="border_buddy">
 
-
+  <div class="border_buddylist">
+    <% if params[:date].nil? || @buddy_requests.length == 0 %>
+     <h2> No buddies available for the selected date. Try another date or choose a different sport!</h2>
+ <% else %>
+<h2> Buddy list for  <%= date = DateTime.parse(@date).strftime('%m/%d/%Y') %></h2>
+ <% end %>
     <% @buddy_requests.each do |request| %>
+     <%= link_to buddy_request_profile_path(request, request.user) do %>
       <div class="card-product">
         <%= cl_image_tag request.user.photo.key %>
           <div class="card-product-infos">
@@ -30,13 +38,14 @@
 
             <p><%= request.user.description.truncate(60)%></p>
           </div>
-          <div class="d-flex justify-content-between" >  <p> <%= request.user.age %></p>
-             <div class="cardlinks"> <%= link_to "Details", buddy_request_profile_path(request, request.user), class: "btn btn-link" %>
+          <div class="d-flex justify-content-between" >  <p> <%= request.user.age  %> yrs</p>
+             <div class="cardlinks">
             <%= link_to "Message", buddy_request_profile_conversations_path(request,request.user ), method: :post, class: "btn btn-link" %>
             </div>
           </div>
         </div>
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>
