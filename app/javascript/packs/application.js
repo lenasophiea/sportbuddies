@@ -31,16 +31,22 @@ import { autocompleteSearch } from '../components/autocomplete';
 import { initConversationCable } from '../channels/conversation_channel'
 
 import { initMapbox } from '../components/init_mapbox';
+import "../plugins/flatpickr"
+
+import flatpickr from "flatpickr";
+
 
 
 
 document.addEventListener('turbolinks:load', () => {
   autocompleteSearch();
   initConversationCable();
+  flatpickr(".datepicker", {});
   // Call your functions here, e.g:
   // initSelect2();
   setTimeout(() => {
   initMapbox();
   },200)
 });
+
 

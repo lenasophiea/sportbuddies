@@ -39,7 +39,7 @@ class SportsController < ApplicationController
                                  .distinct
     # @users = User.joins(:buddy_requests)
     @sports = Sport.all
-  end
+    end
 
   def favorite
      type = params[:type]
