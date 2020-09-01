@@ -3,14 +3,18 @@ class FavoriteSportsController < ApplicationController
   def new
     @sport = Sport.find(params[:sport_id])
     @fav = FavoriteSport.new
+    authorize @fav
   end
 
   def create
-    @fav = FavoriteSport.new(fav_params)
+    @fav = FavoriteSport.new
+    authorize @fav
     @sport = Sport.find(params[:sport_id])
+    @user = current_user
     @fav.sport = @sport
+    @fav.user = @user
     if @fav.save
-      redirect_to sport_path(@sport)
+      redirect_to root_path
     else
       render :new
     end
@@ -18,14 +22,18 @@ class FavoriteSportsController < ApplicationController
 
   def destroy
     @fav = FavoriteSport.find(params[:id])
-    @fav.destroy
-    redirect_to sport_path(@fav.sport)
+    authorize @fav
+    if @fav.destroy
+      redirect_to root_path
+    end
   end
 
   private
 
   def fav_params
-    params.require(:fav).permit(:sport)
+    params.require(:favorite_sport).permit(:sport_id)
   end
 
 end
+
+
