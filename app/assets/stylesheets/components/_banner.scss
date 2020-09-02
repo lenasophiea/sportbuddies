@@ -6,7 +6,7 @@
   justify-content: center;
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 80vh;
   padding-left: 50px;
   opacity: 0.9;
 }
@@ -14,15 +14,17 @@
 .banner h1 { margin: 0;
   color: white;
   margin-top: 20px;
-  font-size: 32px;
+  font-size: 42px;
   font-weight: bold;
   text-align: center;
+  text-shadow: 1px 1px 13px rgba(73,80,87,0.2);
 }
 
 .banner p {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: semibold;
   color: white;
+  text-shadow: 1px 1px 13px rgba(73,80,87,0.2);
 
   text-align: center;
 }
@@ -30,6 +32,11 @@
 .banner a {
   display: inline-block;
   text-align: center;
+}
+
+.highlight {
+  color: $orange !important;
+  background: rgba(253,16,21,.1);
 }
 
 // .bannertext {

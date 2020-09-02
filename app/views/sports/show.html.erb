@@ -24,17 +24,19 @@
   <% elsif params[:date].nil? || @buddy_requests.length == 0 %>
   <h2> No buddies available for the selected date. Try another date or choose a different sport!</h2>
   <% else %>
-<h2> Buddy list for  <%= date = DateTime.parse(@date).strftime('%a-%b-%d-%Y') %></h2>
+<h2> Buddy list for  <%= date = DateTime.parse(@date).strftime('%A, %b %d') %></h2>
  <% end %>
     <% @buddy_requests.each do |request| %>
      <%= link_to buddy_request_profile_path(request, request.user) do %>
       <div class="card-product">
         <%= cl_image_tag request.user.photo.key %>
           <div class="card-product-infos">
-         <div>  <h2><%= request.user.name%></h2>
-            <p><%= request.user.description.truncate(60)%></p>
+         <div class="d-flex"> <h2 class="mr-3"><%= request.user.name%></h2>
+           <h2 class="ptext" > <%= request.user.age  %> yrs</h2>
+           <br>
           </div>
-          <div class="d-flex justify-content-between" >  <p> <%= request.user.age  %> yrs</p>
+          <p><%= request.user.description.truncate(140)%></p>
+          <div class="d-flex justify-content-between" >
              <div class="cardlinks">
             <%= link_to "Message", buddy_request_profile_conversations_path(request,request.user ), method: :post, class: "btn btn-link" %>
             </div>
