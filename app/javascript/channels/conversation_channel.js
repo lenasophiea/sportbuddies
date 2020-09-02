@@ -22,6 +22,9 @@ const initConversationCable = () => {
         console.log(data);
         const notificationBox = document.getElementById('notification-count')
         notificationBox.innerText = data
+        if (data !== 0) {
+          notificationBox.classList.add("red-box")
+        }
         // called when data is broadcast in the cable
       },
     });
