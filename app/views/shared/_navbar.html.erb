@@ -13,11 +13,11 @@
         <% if user_signed_in? %>
           <li class="d-flex nav-item dropdown">
             <%= link_to "Messages", conversations_path , class: "nav-link" %>
-           <% if Conversation.unread_messages(current_user.id).count >= 1 %>
+
+            <% if Conversation.unread_messages(current_user.id).count >= 1 %>
             <div id="notification-count" class="notification-count"> <%= Conversation.unread_messages(current_user.id).count %> </div>
           </li>
           <% end %>
-          </li>
           <li class="nav-item active">
             <%= link_to "Home", "/sports#index", class: "nav-link" %>
           </li>
