@@ -8,8 +8,7 @@
       <%= simple_form_for([ @sport, @buddy_request ],remote: true) do |f| %>
       <div class="row form-inline text-secondary">
       <div class="search_box">  <%= f.input :date, as: :string, required: false, label: false, input_html: {class: "datepicker", autocomplete: "off"} %> </div>
-        <%= f.button :submit, anchor: "#anchor" %>
-        <a class="btn btn-warning" href="">Discover</a>
+        <%= f.button :submit, class: "btn btn-warning text-white", href:"#anchor" %>
       <% end %>
       </div>
     </div>
