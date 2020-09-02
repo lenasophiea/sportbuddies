@@ -30,13 +30,10 @@
       <div class="card-product">
         <%= cl_image_tag request.user.photo.key %>
           <div class="card-product-infos">
-         <div>  <h2><%= request.user.name%>, <%=request.user.age%> yrs</h2>
+         <div>  <h2><%= request.user.name%>, <%=request.user.age %> yrs</h2>
           <p><%= request.user.description.truncate(60)%></p>
-          <% request.user.favorite_sports.each do |favorite_sport| %>
-          <div class="btn btn-ghost">
-            <%= favorite_sport.sport.name %>
-          </div>
-          <% end %>
+          <p>Likes: <%= request.user.favorite_sports.map { |favorite_sport| favorite_sport.sport.name }.join(", ") %>
+          </p>
           </div>
           <div class="d-flex justify-content-between" >
              <div class="cardlinks">

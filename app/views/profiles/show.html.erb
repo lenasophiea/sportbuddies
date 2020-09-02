@@ -14,12 +14,11 @@
     <div class=" d-flex justify-content-between mt-5">
       <div class= "tags" >
         <h3>Favourite Sports</h3>
-          <%= link_to "Football", "#", class: "btn btn-ghost" %>
-          <%= link_to "Volleyball", "#", class: "btn btn-ghost" %>
-          <%= link_to "Cycling", "#", class: "btn btn-ghost" %>
-          <%= link_to "Tennis", "#", class: "btn btn-ghost" %>
-          <%= link_to "Swimming", "#", class: "btn btn-ghost" %>
-          <%= link_to "Basketball ", "#", class: "btn btn-ghost" %>
+        <% @user.favorite_sports.each do |favorite_sport| %>
+          <div class="btn btn-ghost">
+            <%= favorite_sport.sport.name %>
+          </div>
+        <% end %>
       </div>
       <div class="lists ">
         <h3>Club memberships</h3>
