@@ -1,5 +1,5 @@
 
-<div class="container-conversation">
+<div class="container-conversation col-lg-6 justify-content-center">
   <%= link_to "Back to all messages", conversations_path(@conversation) %>
   <div class="border">
 <h1 class="text-warning">Hi <%= @current_user.name %>, chat with <%= @conversation.receiver.name == current_user.name ? @conversation.sender.name : @conversation.receiver.name %></h1>
@@ -12,7 +12,6 @@
       </i>
       <p><%= message.content %></p>
     </div>
-
   <% end %>
 </div>
 

@@ -1,7 +1,7 @@
 .container-message {
   margin-top: 100px;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .container-message h2 {
@@ -10,8 +10,8 @@
 
 .container-conversation {
   margin-top: 100px;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .border-message {
@@ -22,9 +22,29 @@
     height: 100px;
 }
 
+.message-container {
+  padding: 10px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px #f8f9fa solid;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
 .conversation-card-info-unread {
   p, h2{
       color: $orange;
       font-weight: bold;
     }
 }
+.sender-message {
+  background-color: var(--orange);
+  opacity: 20;
+  border: none;
+}
+
+.sender-message p {
+
+}
+
+
