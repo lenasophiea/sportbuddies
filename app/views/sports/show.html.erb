@@ -8,7 +8,8 @@
       <%= simple_form_for([ @sport, @buddy_request ],remote: true) do |f| %>
       <div class="row form-inline text-secondary">
       <div class="search_box">  <%= f.input :date, as: :string, required: false, label: false, input_html: {class: "datepicker", autocomplete: "off"} %> </div>
-        <%= f.button :submit, class: "btn btn-warning text-white" %>
+        <%= f.button :submit, anchor: "#anchor" %>
+        <a class="btn btn-warning" href="">Discover</a>
       <% end %>
       </div>
     </div>
@@ -16,8 +17,7 @@
 </div>
 
 
-
-<div class="container col-lg-8">
+<div id="anchor" class="container col-lg-8">
 
   <div class="border_buddylist">
     <% if params[:date].nil? %>

@@ -15,5 +15,4 @@ class ProfilesController < ApplicationController
   # def user_params
   #   params.require(:profile).permit(:id)
   # end
-
 end
