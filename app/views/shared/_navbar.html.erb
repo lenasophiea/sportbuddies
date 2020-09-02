@@ -6,14 +6,12 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
           <li class="d-flex nav-item dropdown">
             <%= link_to "Messages", conversations_path , class: "nav-link" %>
-           <% if Conversation.unread_messages(current_user.id).count >= 1 %>
+            <% if Conversation.unread_messages(current_user.id).count >= 1 %>
             <div id="notification-count" class="notification-count"> <%= Conversation.unread_messages(current_user.id).count %> </div>
           </li>
           <% end %>
