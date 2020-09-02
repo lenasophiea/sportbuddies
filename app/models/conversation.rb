@@ -6,6 +6,7 @@ class Conversation < ApplicationRecord
 
   def self.unread_messages(user_id)
     user_convos = Conversation.where(receiver_id: user_id).or(Conversation.where(sender_id: user_id))
+    return [] if user_convos.empty?
     unread_messages = user_convos.map do |conversation|
       conversation.messages.reject(&:read)
     end
