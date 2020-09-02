@@ -20,7 +20,8 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
 
 
 <% if params[:query_sport] %>
-    <div class="heading"><h2> <%= " Search results for #{params[:query_sport]} in Berlin " %></h2></div>
+    <div class="heading"><h2> <%= " Search results for #{params[:query_sport]} in Berlin " %></h2>
+    </div>
 <% else %>
 <div class="heading"><h2> <%= " Recommended sports in Berlin " %></h2></div>
   <% end %>
@@ -32,20 +33,9 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
       <div  class = "card-info">
         <i class="fa fa-heart-o" aria-hidden="true"></i>
        <div class="pl-3"> <h2><%= sport.name.capitalize %></h2>
-        <p><i class="fas fa-map-marker-alt"></i> <%= sport.address.truncate(35) %></p>
+        <p><i class="fas fa-map-marker-alt"></i> <%= sport.address.truncate(30) %></p>
       </div>
-<% if current_user %>
-  <% favorite_sport = FavoriteSport.where(user_id: current_user.id, sport_id: sport.id).first %>
-  <% if favorite_sport %>
-    <%= link_to favorite_sport_path(favorite_sport), method: :delete do %>
-    <i class="fas fa-heart"></i>
-    <% end %>
-  <% else %>
-    <%= link_to sport_favorite_sports_path(sport, type: "favorite"), method: :post do %>
-    <i class="far fa-heart"></i>
-    <% end %>
-   <% end %>
-<% end %>
+
         <div class="line-orange" >
       <%= link_to "Find buddy", sport_path(sport), class: "btn btn-link btn-home" %>
       </div>
