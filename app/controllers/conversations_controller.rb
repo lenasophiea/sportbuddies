@@ -2,8 +2,7 @@ class ConversationsController < ApplicationController
 
   def index
     @conversations = policy_scope(Conversation)
-    @conversations = Conversation.where(receiver_id: current_user.id).or(Conversation.where(sender_id: current_user.id))
-    # raise
+    @conversations = Conversation.where(receiver_id: current_user.id).or(Conversation.where(sender_id: current_user.id)).order('created_at DESC')
   end
 
   def show
