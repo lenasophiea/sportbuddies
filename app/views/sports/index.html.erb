@@ -1,7 +1,7 @@
 <div class="banner text-center"
-style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= image_path "banner.jpg" %>');">
+style= "background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url('<%= image_path "banner4.jpg" %>');">
   <div class="container">
-    <h1>Welcome to SportsBuddy</h1>
+    <h1>Welcome to <i class="highlight">SportsBuddy</i></h1>
      <p>Discover activities and connect with people around you</p>
       <div class="d-flex justify-content-center p-5">
         <%= form_tag sports_path, method: :get do %>
@@ -11,7 +11,7 @@ style= "background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(
               params[:query_address],
               placeholder: "Enter location"
             %>
-            <%= submit_tag "Find an activity", class: "btn btn-warning" %>
+            <%= submit_tag "Search", class: "btn btn-warning" %>
           </div>
         <% end %>
       </div>
