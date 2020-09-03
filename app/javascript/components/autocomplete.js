@@ -1,4 +1,4 @@
-import 'js-autocomplete/auto-complete.css';
+
 const autocompleteSearch = function() {
   const sportss = document.getElementById('search-data')
   const searchInput = document.getElementById('query_sport');
