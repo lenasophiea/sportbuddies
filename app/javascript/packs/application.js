@@ -34,6 +34,7 @@ import { initMapbox } from '../components/init_mapbox';
 import "../plugins/flatpickr"
 
 import flatpickr from "flatpickr";
+import { initAutocomplete } from '../plugins/init_autocomplete.js';
 
 import { hideNotification } from '../components/notification'
 
@@ -49,7 +50,8 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   setTimeout(() => {
   initMapbox();
-  },200)
+  },200);
+  initAutocomplete();
 });
 
 

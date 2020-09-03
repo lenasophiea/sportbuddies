@@ -11,7 +11,7 @@ class SportsController < ApplicationController
     if params[:query_sport].present?
       @sports = Sport.search_by_sport_filter(params[:query_sport])
     elsif params[:query_address].present?
-      @sports = Sport.search_by_sport_filter(params[:query_address])
+      @sports = Sport.near(params[:query_address],3)
     else
       @sports = Sport.all
     end

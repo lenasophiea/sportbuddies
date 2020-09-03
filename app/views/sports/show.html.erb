@@ -31,10 +31,16 @@
       <div class="card-product">
         <%= cl_image_tag request.user.photo.key %>
           <div class="card-product-infos">
-         <div class="d-flex"> <h2 class="mr-3"><%= request.user.name%></h2>
+          <div class="d-flex"> <h2 class="mr-3"><%= request.user.name%>,</h2>
            <h2 class="ptext" > <%= request.user.age  %> yrs</h2>
           </div>
-          <p><%= request.user.description.truncate(140)%></p>
+          <p><%= request.user.description.truncate(160)%></p>
+          <% unless request.user.favorite_sports.empty? %>
+            <p>Likes: <%= request.user.favorite_sports.map { |favorite_sport| favorite_sport.sport.name }.join(", ") %>
+          <% end %>
+          </p>
+
+
           <div class="d-flex justify-content-between" >
              <div class="cardlinks">
             <%= link_to "Message", buddy_request_profile_conversations_path(request,request.user ), method: :post, class: "btn btn-link" %>

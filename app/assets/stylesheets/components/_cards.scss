@@ -63,6 +63,7 @@ align-self: center;
 }
 
 .card-info {
+position: relative;
 justify-content: left;
 display: flex;
 flex-direction: column;
@@ -93,5 +94,16 @@ color: #1E352F;
   justify-content: center;
 }
 
-
-
+.fav {
+  position: absolute;
+  right: 15px;
+  font-size: 26px;
+  a {
+    color: #00BD9D;
+    transition: 0.3s;
+  }
+  a:hover{
+  font-size: 32px;
+  transition: 0.3s;
+  }
+}

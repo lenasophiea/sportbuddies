@@ -58,6 +58,8 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    algolia-places-rails (1.16.4)
+      rails (>= 5.0.0)
     algoliasearch (1.27.3)
       httpclient (~> 2.8, >= 2.8.3)
       json (>= 1.5.1)
@@ -270,6 +272,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  algolia-places-rails (~> 1.16, >= 1.16.4)
   algoliasearch-rails
   autoprefixer-rails
   bootsnap (>= 1.4.2)

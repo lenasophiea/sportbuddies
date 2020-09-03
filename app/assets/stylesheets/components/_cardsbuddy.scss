@@ -1,17 +1,20 @@
 .card-product {
   margin-bottom: 20px;
   overflow: hidden;
-  height: 120px;
+  height: 150px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   border-radius: 10px;
+  > a {
+    height: 100%;
+  }
 }
 
 .card-product img {
   height: 100%;
-  width: 120px;
+  width: 150px;
   object-fit: cover;
 }
 
@@ -26,7 +29,7 @@
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
-
+  padding: 3px;
   width: 80%
 }
 
@@ -78,8 +81,10 @@
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
-  margin-top: 16px;
+  margin-top: 8px;
   margin-right: 8px;
+  font-size: 15px;
+  text-align: justify;
 }
 
 .tags {

@@ -70,3 +70,4 @@ gem 'pg_search', '~> 2.3.0'
 gem "algoliasearch-rails"
 gem 'simple_form'
 gem 'geocoder'
+gem 'algolia-places-rails', '~> 1.16', '>= 1.16.4'
