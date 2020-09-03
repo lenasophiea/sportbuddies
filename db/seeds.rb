@@ -229,13 +229,13 @@ sport.save!
   puts "#{Sport.count}created"
 
 puts "creating buddy_requests"
-  3.times do
+  1.times do
   buddy_request = BuddyRequest.new(
   sport: Sport.last,
   user: User.first,
-  date: Date.new(2020,9,1)
+  date: Date.new(2020,9,4)
   )
   buddy_request.save!
   end
 
-
+end

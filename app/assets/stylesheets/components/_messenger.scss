@@ -1,0 +1,50 @@
+.container-message {
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-message h2 {
+  font-size: 20px;
+}
+
+.container-conversation {
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.border-message {
+    box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 40px;
+    height: 100px;
+}
+
+.message-container {
+  padding: 10px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px #f8f9fa solid;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.conversation-card-info-unread {
+  p, h2{
+      color: $orange;
+      font-weight: bold;
+    }
+}
+.sender-message {
+  background-color: var(--orange);
+  opacity: 20;
+  border: none;
+}
+
+.sender-message p {
+
+}
+
+
