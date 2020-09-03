@@ -2,27 +2,27 @@
   <h2>Your Inbox:</h2>
   <% if @conversations.length >= 1 %>
       <% @conversations.each do |conversation| %>
-        <div class="conversation-card border-message">
+        <div class="conversation-card border-message d-flex" >
           <% if current_user.id == conversation.sender.id %>
-          <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-4 d-flex align-items-center">
-              <div class="conversation-card-avatar">
+
+            <div class="d-flex ">
+              <div class="conversation-card-avatar d-flex">
                 <%= link_to buddy_request_profile_path(conversation.buddy_request_id, conversation.receiver) do %>
                  <%= cl_image_tag conversation.receiver.photo.key, class: "avatar-bordered" %>
                 <% end %>
               </div>
             </div>
-            <div class="d-flex col-lg-9 col-md-9 col-sm-8 justify-content-between">
+            <div class="d-flex justify-content-between" style="flex-grow: 1;">
               <div class="<%= conversation.messages.last.read ? "conversation-card-info" : "conversation-card-info-unread"%>">
                 <%= link_to conversation_path(conversation) do %>
                 <h2> <%= conversation.receiver.name %> </h2>
                   <p>Me: <i><%= conversation.messages.last.content %></i></p>
                   <% end %>
               </div>
-              <div class="conversation-message d-flex align-items-start">
+              <div class="conversation-message">
                 <p><i><%= conversation.messages.last.created_at.strftime("%b %e, %l:%M %p") %></i></p>
               </div>
-            </div>
+
             </div>
           <% else %>
                 <div class="row">
