@@ -9,8 +9,7 @@ style= "background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url('<%=
             <%= text_field_tag :query_sport, params[:query_sport], autocomplete: :off, placeholder: "Select sport" %>
             <div class="suggestions position-absolute"></div>
             <%= text_field_tag :query_address, params[:query_address], placeholder: "Enter location", class: "search-places" %>
-            <%= submit_tag "Find an activity", class: "btn btn-warning" %>
-
+            <%= submit_tag "Search", class: "btn btn-warning" %>
           </div>
         <% end %>
       </div>
