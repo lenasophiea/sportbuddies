@@ -104,28 +104,28 @@ puts "creating user with image"
   # buddy_request.save!
 end
 
-# puts "creating user with image"
-# 1.times do
-#   user = User.create(
-#   name: "Amelie Kerne",
-#   description: "I love to go running! I would love to train for a marathon with like minded people! Can't wait for your buddy request!",
-#   age: "28",
-#   gender:"female",
-#   email: "amelie@lewagon.com",
-#   password: "123456",
-#   )
-#   url = 'https://avatars2.githubusercontent.com/u/65012603?v=4'
-#   filename = File.basename(URI.parse(url).path)
-#   file = URI.open(url)
-#   user.photo.attach(io: file, filename: filename)
-#   user.save!
-# #   # buddy_request = BuddyRequest.new(
-# #   #   sport: Sport.last,
-# #   #   user: user,
-# #   #   date: Date.new(2020,9,1)
-# #   #   )
-# #   # buddy_request.save!
-# end
+puts "creating user with image"
+1.times do
+  user = User.create(
+  name: "Amélie ",
+  description: "I love trying out new things while sweating! I believe you can achieve anything and even more with the right people at your side :)",
+  age: "29",
+  gender:"female",
+  email: "amelie@lewagon.com",
+  password: "123456",
+  )
+  url = 'https://media-exp1.licdn.com/dms/image/C4D03AQFo3fixvsIj_g/profile-displayphoto-shrink_200_200/0?e=1604534400&v=beta&t=u8TqK5B2w7kBaKAkiQanuCeztYyFedi49LR9IeDTA8w'
+  filename = File.basename(URI.parse(url).path)
+  file = URI.open(url)
+  user.photo.attach(io: file, filename: filename)
+  user.save!
+  # buddy_request = BuddyRequest.new(
+  #   sport: Sport.last,
+  #   user: user,
+  #   date: Date.new(2020,9,1)
+  #   )
+  # buddy_request.save!
+end
 
 
 puts "creating user with image"
