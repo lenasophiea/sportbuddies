@@ -5,7 +5,7 @@ style= "background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url('<%=
      <p>Discover activities and connect with people around you</p>
       <div class="d-flex justify-content-center p-5">
         <%= form_tag sports_path, method: :get do %>
-          <div class="d-flex" id="search-data" data-sports="<%= @sports_selection.to_json %>" >
+          <div class="d-flex position-relative" id="search-data" data-sports="<%= @sports_selection.to_json %>" >
             <%= text_field_tag :query_sport, params[:query_sport], autocomplete: :off, placeholder: "Select sport" %>
             <div class="suggestions position-absolute"></div>
             <%= text_field_tag :query_address, params[:query_address], placeholder: "Enter location", class: "search-places" %>
