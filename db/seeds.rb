@@ -257,7 +257,7 @@ puts "creating buddy_requests"
   buddy_request = BuddyRequest.new(
   sport: Sport.last,
   user: User.first,
-  date: Date.new(2020,9,7)
+  date: Date.new(2020,9,4)
   )
   buddy_request.save!
   end
