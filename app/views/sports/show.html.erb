@@ -33,7 +33,7 @@
           <div class="card-product-infos">
          <div>  <h2><%= request.user.name%>, <%=request.user.age %> yrs</h2>
           <br>
-          <p><%= request.user.description.truncate(60)%></p>
+          <p><%= request.user.description.truncate(160)%></p>
           <% unless request.user.favorite_sports.empty? %>
             <p>Likes: <%= request.user.favorite_sports.map { |favorite_sport| favorite_sport.sport.name }.join(", ") %>
           <% end %>
