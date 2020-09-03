@@ -23,15 +23,14 @@
               </div>
             </div>
           <% else %>
-                <div class="row">
-                  <div class="col-lg-3 col-md-3 col-sm-4 d-flex align-items-center">
-                    <div class="conversation-card-avatar">
+                  <div class="d-flex">
+                    <div class="conversation-card-avatar d-flex">
                       <%= link_to buddy_request_profile_path(conversation.buddy_request_id, conversation.sender) do %>
                       <%= cl_image_tag conversation.sender.photo.key, class: "avatar-bordered"%>
                       <% end %>
                     </div>
                   </div>
-                  <div class="d-flex col-lg-9 col-md-9 col-sm-8 justify-content-between">
+                  <div class="d-flex justify-content-between" style="flex-grow: 1;">
                   <div class="<%= conversation.messages.last.read ? "conversation-card-info" : "conversation-card-info-unread"%>">
                     <%= link_to conversation_path(conversation) do %>
                     <h2> <%= conversation.sender.name %></h2>
