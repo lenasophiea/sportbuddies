@@ -4,6 +4,7 @@ class SportsController < ApplicationController
   def index
 
     @sports = policy_scope(Sport)
+    @sport_names = @sports.map(&:name)
 
     @sports_selection = Sport.pluck(:name).sort
 
