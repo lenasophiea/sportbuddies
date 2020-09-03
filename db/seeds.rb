@@ -84,9 +84,9 @@ end
 puts "creating user with image"
 1.times do
   user = User.create(
-  name: "Mohit",
+  name: "Mohit ",
   description: "I'm a sporty guy, born and raised in Berlin. I love to meet new people and I love to do sports!",
-  age: "28",
+  age: "29",
   gender:"male",
   email: "mohit@lewagon.com",
   password: "123456",
@@ -104,28 +104,52 @@ puts "creating user with image"
   # buddy_request.save!
 end
 
-# puts "creating user with image"
-# 1.times do
-#   user = User.create(
-#   name: "Amelie",
-#   description: "I love to go running! I would love to train for a marathon with like minded people! Can't wait for your buddy request!",
-#   age: "28",
-#   gender:"female",
-#   email: "amelie@lewagon.com",
-#   password: "123456",
-#   )
-#   url = 'https://avatars2.githubusercontent.com/u/65012603?v=4'
-#   filename = File.basename(URI.parse(url).path)
-#   file = URI.open(url)
-#   user.photo.attach(io: file, filename: filename)
-#   user.save!
+puts "creating user with image"
+1.times do
+  user = User.create(
+  name: "Amelie Kerne",
+  description: "I love to go running! I would love to train for a marathon with like minded people! Can't wait for your buddy request!",
+  age: "28",
+  gender:"female",
+  email: "amelie@lewagon.com",
+  password: "123456",
+  )
+  url = 'https://avatars2.githubusercontent.com/u/65012603?v=4'
+  filename = File.basename(URI.parse(url).path)
+  file = URI.open(url)
+  user.photo.attach(io: file, filename: filename)
+  user.save!
 #   # buddy_request = BuddyRequest.new(
 #   #   sport: Sport.last,
 #   #   user: user,
 #   #   date: Date.new(2020,9,1)
 #   #   )
 #   # buddy_request.save!
-# end
+end
+
+
+puts "creating user with image"
+1.times do
+  user = User.create(
+  name: "Claire Demont",
+  description: "Freelance Fullstack RoR Developer, improv comedian, cinema addict and yogi addict looking for new challenges.",
+  age: "25",
+  gender:"female",
+  email: "claire@lewagon.com",
+  password: "123456",
+  )
+  url = 'https://avatars3.githubusercontent.com/u/45850166?v=4'
+  filename = File.basename(URI.parse(url).path)
+  file = URI.open(url)
+  user.photo.attach(io: file, filename: filename)
+  user.save!
+#   # buddy_request = BuddyRequest.new(
+#   #   sport: Sport.last,
+#   #   user: user,
+#   #   date: Date.new(2020,9,1)
+#   #   )
+#   # buddy_request.save!
+end
 
 puts "#{User.count} users created"
 
@@ -233,7 +257,16 @@ puts "creating buddy_requests"
   buddy_request = BuddyRequest.new(
   sport: Sport.last,
   user: User.first,
-  date: Date.new(2020,9,4)
+  date: Date.new(2020,9,7)
+  )
+  buddy_request.save!
+  end
+
+  1.times do
+  buddy_request = BuddyRequest.new(
+  sport: Sport.last,
+  user: User.last,
+  date: Date.new(2020,9,7)
   )
   buddy_request.save!
   end
