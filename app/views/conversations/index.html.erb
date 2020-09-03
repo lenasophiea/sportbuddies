@@ -4,7 +4,6 @@
       <% @conversations.each do |conversation| %>
         <div class="conversation-card border-message d-flex" >
           <% if current_user.id == conversation.sender.id %>
-
             <div class="d-flex ">
               <div class="conversation-card-avatar d-flex">
                 <%= link_to buddy_request_profile_path(conversation.buddy_request_id, conversation.receiver) do %>
@@ -22,7 +21,6 @@
               <div class="conversation-message">
                 <p><i><%= conversation.messages.last.created_at.strftime("%b %e, %l:%M %p") %></i></p>
               </div>
-
             </div>
           <% else %>
                   <div class="d-flex">
@@ -51,5 +49,3 @@
     <h1> Create a Buddy Request and start chatting!</h1>
   <% end %>
 </div>
-
-

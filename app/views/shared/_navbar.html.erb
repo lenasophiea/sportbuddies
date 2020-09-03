@@ -17,7 +17,7 @@
             <div id="notification-count" class="notification-count red-box"> <%= Conversation.unread_messages(current_user.id).count %>
               <% end %>
             </div>
-          </li>
+
           <li class="nav-item dropdown">
             <%= image_tag "https://images.unsplash.com/photo-1547354142-526457358bb7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
