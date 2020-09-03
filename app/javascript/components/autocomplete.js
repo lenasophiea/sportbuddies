@@ -1,25 +1,28 @@
 import 'js-autocomplete/auto-complete.css';
-import autocomplete from 'js-autocomplete';
 
 const autocompleteSearch = function() {
-  const sports = document.getElementById('search-data')
+  const sportss = document.getElementById('search-data')
   const searchInput = document.getElementById('query_sport');
-  console.log(sports)
+  const list = document.querySelector('.suggestions')
 
+  if (sportss && searchInput) {
+    const sports = document.querySelector("#db-sports").dataset.sports
+    const parsedSports = JSON.parse(sports)
 
-  if (sports && searchInput) {
-    new autocomplete({
-      selector: searchInput,
-      minChars: 1,
-      source: function(term, suggest){
-          term = term.toLowerCase();
-          const choices = JSON.parse((sports).dataset.sports);
-          const matches = [];
-          for (let i = 0; i < choices.length; i++)
-              if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
-          suggest(matches);
-      },
-    });
+    searchInput.addEventListener("input", () => {
+      list.innerHTML = ""
+      if (!searchInput.value == "") {
+        const suggestions = parsedSports.filter((sport) => {
+          return sport.toLowerCase().includes(searchInput.value.toLowerCase())
+        })
+        console.log(suggestions, parsedSports)
+        suggestions.forEach((suggestion) => {
+          list.insertAdjacentHTML("beforeend",`<h5>${suggestion}</h5>` )
+        })
+      }
+    })
+    searchInput.onchange = function() {
+    }
   }
 };
 
