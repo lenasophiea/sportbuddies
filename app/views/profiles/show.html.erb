@@ -1,5 +1,5 @@
 
-<div class="container col-lg-8">
+<div class="container col-lg-8 mt-5">
   <div class="border">
     <h1><%= @user.name %></h1>
     <div class=" d-flex justify-content-start">
@@ -31,5 +31,8 @@
       <%= link_to "Message", buddy_request_profile_conversations_path(@buddy_request, @user), method: :post, class: "btn btn-warning btn-align-end"  %>
    </div>
   </div>
+  <br>
+<%= link_to "Back", request.referer, class: "btn btn-link"  %>
  </div>
+
 

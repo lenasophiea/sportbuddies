@@ -7,7 +7,7 @@ class BuddyRequestsController < ApplicationController
     @buddy_request.user = current_user
 
     if @buddy_request.save
-      redirect_to sport_path(@sport, date: @buddy_request.date)
+      redirect_to "#{sport_path(@sport, date: @buddy_request.date)}#anchor"
       authorize @buddy_request
     else
       render 'sports/show'

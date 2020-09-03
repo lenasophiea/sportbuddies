@@ -36,11 +36,16 @@ import "../plugins/flatpickr"
 import flatpickr from "flatpickr";
 import { initAutocomplete } from '../plugins/init_autocomplete.js';
 
+import { hideNotification } from '../components/notification'
+
+
+
 
 document.addEventListener('turbolinks:load', () => {
   autocompleteSearch();
   initConversationCable();
   flatpickr(".datepicker", {});
+  hideNotification();
   // Call your functions here, e.g:
   // initSelect2();
   setTimeout(() => {

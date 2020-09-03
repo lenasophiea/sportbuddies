@@ -1,6 +1,8 @@
-<div class="container">
+
+<div class="container-conversation col-lg-6 justify-content-center">
+  <%= link_to "Back to all messages", conversations_path(@conversation) %>
   <div class="border">
-<h1 class="text-warning">Hi <%= @conversation.sender.name %>, chat with <%= @conversation.receiver.name.capitalize %></h1>
+<h1 class="text-warning">Hi <%= @current_user.name %>, chat with <%= @conversation.receiver.name == current_user.name ? @conversation.sender.name : @conversation.receiver.name %></h1>
 <div id="messages" data-chatroom-id="<%= @conversation.id %>">
   <% @conversation.messages.each do |message| %>
     <div class="message-container <%= "sender-message" if message.user == current_user %>" id="message-<%= message.id %>">
@@ -10,14 +12,13 @@
       </i>
       <p><%= message.content %></p>
     </div>
-
   <% end %>
 </div>
 
 
   <div class="form-group">
       <%= simple_form_for [ @conversation, @message ], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: "Send a message to #{@conversation.receiver.name.capitalize} and ask when she's free..." %>
+      <%= f.input :content, label: false, placeholder: "Send a message to #{@conversation.receiver.name == current_user.name ? @conversation.sender.name : @conversation.receiver.name} and meet up..." %>
       <%= f.button :submit, 'Send', class: "btn btn-primary text-white" %>
       <% end %>
   </div>

@@ -29,8 +29,13 @@
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
-  margin-top: 8px;
-  white-space: nowrap;
+
+  width: 80%
+}
+
+.ptext {
+  color: grey;
+  white-space: nowrap !important;
 }
 
 .card-product .card-product-infos {
@@ -90,7 +95,7 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
   padding: 40px;
   border-radius: 5px;
-  margin-top: 40px;
+  margin-top: 80px;
 }
 
 .textlist {

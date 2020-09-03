@@ -1,32 +1,56 @@
-<div class="container pt-5">
-    <% @conversations.each do |conversation| %>
-      <div class="card-product">
-        <% if current_user.id == conversation.sender.id %>
-        <%= cl_image_tag conversation.receiver.photo.key, class: "avatar" %>
-          <div class="card-product-infos">
-         <div> <h2> <%= link_to conversation.receiver.name, conversation_path(conversation) %> </h2>
-            <p><i><%= conversation.messages.last.content %></i></p>
-          </div>
-          <div class="d-flex justify-content-between" >
-             <div class="cardlinks"> <%= link_to "Profile", buddy_request_profile_path(conversation.buddy_request_id, conversation.receiver), class: "btn btn-link" %>
+<div class="container-message col-lg-6">
+  <h2>Your Inbox:</h2>
+  <% if @conversations.length >= 1 %>
+      <% @conversations.each do |conversation| %>
+        <div class="conversation-card border-message">
+          <% if current_user.id == conversation.sender.id %>
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-4 d-flex align-items-center">
+              <div class="conversation-card-avatar">
+                <%= link_to buddy_request_profile_path(conversation.buddy_request_id, conversation.receiver) do %>
+                 <%= cl_image_tag conversation.receiver.photo.key, class: "avatar-bordered" %>
+                <% end %>
+              </div>
             </div>
+            <div class="d-flex col-lg-9 col-md-9 col-sm-8 justify-content-between">
+              <div class="<%= conversation.messages.last.read ? "conversation-card-info" : "conversation-card-info-unread"%>">
+                <%= link_to conversation_path(conversation) do %>
+                <h2> <%= conversation.receiver.name %> </h2>
+                  <p>Me: <i><%= conversation.messages.last.content %></i></p>
+                  <% end %>
+              </div>
+              <div class="conversation-message d-flex align-items-start">
+                <p><i><%= conversation.messages.last.created_at.strftime("%b %e, %l:%M %p") %></i></p>
+              </div>
+            </div>
+            </div>
+          <% else %>
+                <div class="row">
+                  <div class="col-lg-3 col-md-3 col-sm-4 d-flex align-items-center">
+                    <div class="conversation-card-avatar">
+                      <%= link_to buddy_request_profile_path(conversation.buddy_request_id, conversation.sender) do %>
+                      <%= cl_image_tag conversation.sender.photo.key, class: "avatar-bordered"%>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class="d-flex col-lg-9 col-md-9 col-sm-8 justify-content-between">
+                  <div class="<%= conversation.messages.last.read ? "conversation-card-info" : "conversation-card-info-unread"%>">
+                    <%= link_to conversation_path(conversation) do %>
+                    <h2> <%= conversation.sender.name %></h2>
+                    <p><%= conversation.sender.name %>: <i><%= conversation.messages.last.content %></i> </p>
+                    <% end %>
+                  </div>
+                <div class="conversation-message d-flex align-items-start">
+                  <p><i><%= conversation.messages.last.created_at.strftime("%b %e, %l:%M %p") %></i></p>
+                </div>
           </div>
         </div>
-        <% else %>
-        <%= cl_image_tag conversation.sender.photo.key, class: "avatar" %>
-          <div class="card-product-infos">
-         <div>  <h2><%= conversation.sender.name %></h2>
-            <p><i><%= conversation.messages.last.content %></i></p>
-          </div>
-          <div class="d-flex justify-content-between" >
-             <div class="cardlinks"> <%= link_to "Profile", buddy_request_profile_path(conversation.buddy_request_id, conversation.sender), class: "btn btn-link" %>
-            </div>
-          </div>
-        </div>
-
+      <% end %>
       </div>
-       <% end %>
-       <% end %>
+    <% end %>
+  <% else %>
+    <h1> Create a Buddy Request and start chatting!</h1>
+  <% end %>
 </div>
 
 

@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :favorite_sports, dependent: :destroy, source: :sports
   has_many :conversations
   has_one_attached :photo
+
 end
