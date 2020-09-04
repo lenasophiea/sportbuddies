@@ -15,7 +15,7 @@
               <div class="<%= conversation.messages.last.read ? "conversation-card-info" : "conversation-card-info-unread"%>">
                 <%= link_to conversation_path(conversation) do %>
                 <h2> <%= conversation.receiver.name %> </h2>
-                  <p>Me: <i><%= conversation.messages.last.content %></i></p>
+                  <p>Me: <i><%= conversation.messages.last.content.truncate(80) %></i></p>
                   <% end %>
               </div>
               <div class="conversation-message">
@@ -34,14 +34,13 @@
                   <div class="<%= conversation.messages.last.read ? "conversation-card-info" : "conversation-card-info-unread"%>">
                     <%= link_to conversation_path(conversation) do %>
                     <h2> <%= conversation.sender.name %></h2>
-                    <p><%= conversation.sender.name %>: <i><%= conversation.messages.last.content %></i> </p>
+                    <p><%= conversation.sender.name %>: <i><%= conversation.messages.last.content.truncate(80) %></i> </p>
                     <% end %>
                   </div>
                 <div class="conversation-message d-flex align-items-start">
                   <p><i><%= conversation.messages.last.created_at.strftime("%b %e, %l:%M %p") %></i></p>
                 </div>
           </div>
-        </div>
       <% end %>
       </div>
     <% end %>
