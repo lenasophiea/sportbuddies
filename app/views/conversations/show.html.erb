@@ -1,6 +1,6 @@
 
 <div class="container-conversation col-lg-6 justify-content-center">
-  <%= link_to "Back to all messages", conversations_path(@conversation) %>
+  <%= link_to "Back to all messages", conversations_path(@conversation), class:"btn btn-link" %>
   <div class="border">
 <h1 class="text-warning">Hi <%= @current_user.name %>, chat with <%= @conversation.receiver.name == current_user.name ? @conversation.sender.name : @conversation.receiver.name %></h1>
 <div id="messages" data-chatroom-id="<%= @conversation.id %>">
